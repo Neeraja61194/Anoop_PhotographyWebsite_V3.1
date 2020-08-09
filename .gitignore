@@ -2,7 +2,7 @@
 node_modules
 
 **/img/photos/*
-!**/img/photos/.gitkeep
+# !**/img/photos/.gitkeep
 
 ./public/img/Slot_1_Image/*
 !./public/img/Slot_1_Image/.gitkeep
