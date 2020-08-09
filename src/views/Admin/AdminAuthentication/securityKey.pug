@@ -1,0 +1,13 @@
+extends ../../layout.pug
+
+block content
+    .container
+        br
+        br
+        h1(style="color: red;") Admin Code 
+        br
+        form(action="/security" method="post" style="width: 40%;")
+            .form-group
+                label(for='Current Email') Enter the Admin Code
+                input.form-control(type="password" required="required" name="sec_key" autofocus)
+            button.btn.btn-primary Submit

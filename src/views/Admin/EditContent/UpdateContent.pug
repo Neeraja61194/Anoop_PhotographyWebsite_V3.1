@@ -1,0 +1,21 @@
+extends ../../layout.pug
+
+block content
+    .container
+        .container
+            br
+            br
+            h4 Update Image
+            br
+            form(action="/folders" method="post" enctype="multipart/form-data" style="width: 50%;")
+                .form-group
+                    label(for='Folder Name') Folder Name
+                    input.form-control(type="text" required="required" name="folder" autofocus)
+                
+                .form-group
+                    label(for='exampleFormControlFile1') Folder picture
+                    input#exampleFormControlFile1.form-control-file(type='file' name="file")
+                button.btn.btn-primary Create
+
+        
+        

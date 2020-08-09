@@ -1,0 +1,29 @@
+extends ../../layout.pug
+
+block content
+    .container
+        //- p This is a form that you can use to upload a new image
+        //- form(action="/photos" method="post" enctype="multipart/form-data")
+        //-     input(type="file" placeholder="Image" multiple name="file")
+        //-     br
+        //-     select(name='category', id='' required="required")
+        //-         each val in folder_categoryList
+        //-             option=val
+        //-     button Create
+
+        br
+        br
+        h4 Form to Upload Photos
+        br
+        form(action="/photos" method="post" enctype="multipart/form-data" style="width: 50%;")
+            .form-group
+                label.mr-sm-2(for='inlineFormCustomSelect') Choose Folder
+                select#inlineFormCustomSelect.custom-select.mr-sm-2(name='category' required="required")
+                    option(selected='') Select...
+                    each val in folder_categoryList
+                        option=val
+            .form-group
+                label(for='exampleFormControlFile1') Select Photos
+                input#exampleFormControlFile1.form-control-file(type="file" multiple name="file")
+            button.btn.btn-primary Upload
+    

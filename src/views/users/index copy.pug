@@ -1,0 +1,187 @@
+extends ../layout.pug
+
+block content 
+  link(rel='stylesheet', type='text/css', href='/css/style.css')
+  link(rel='stylesheet', type='text/css', href='/css/contact.css')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css")
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+  body
+    #home.main_container
+      .navbar
+        .logo
+          a(href='#' style="text-decoration: none;" data-aos="zoom-in")  
+            span Anoop Arunan
+            span.subTitle  Photography
+        .menu-toggle
+        .navbar_items
+          ul
+            li
+              a.active(href='#') Home
+            li
+              a(href='#about') About Me
+            li
+              a(href='#services') Services
+            li
+              a(href='#photos') Photos
+            li
+              a(href='#contactus') Contact
+
+      .slideshow-container
+        each mainImage in mainImages_List
+          .mySlides
+            img(src='img/landing_images/' + mainImage style="	width:100%; max-height: 800px;")
+            //- .text=mainImage
+
+      //- .slideshow-container
+      //-   each mainImage in mainImages_List
+      //-     .mySlides.fade
+      //-       img(src='img/landing_images/' + mainImage style="	width:100%; max-height: 800px;")
+      //- div(style='text-align:center;')
+      //-   span.dot
+        //- span.dot
+        //- span.dot
+        //- span.dot
+      
+      section
+        #about.about
+          .row
+            .col-6.banner-info
+              div(class="item-text" data-aos="fade-right")
+                br
+                h1 About Me
+                br
+                p.big-text  Create Responsive Website
+                p Learn how to make a responsive website using HTML, CSS and bootstrap
+                a.btn.btn-first(href='#') Like Video
+                a.btn.btn-second(href='#') Subscribe Video
+            .col-6.banner-image
+              div(class="item-img" data-aos="fade-left")
+                img.img-responsive(src='img/contact/FB_IMG_1595979508836.jpg')
+
+      .parallax1
+        //- .heading-sm Parallax 1
+          
+      #photos.photos
+        h2.w3-text-light-grey Gallery 
+        br
+        br
+        br
+        .team-area
+          .row
+            each folder in variables.folders
+              .col-6
+                a(href="/folders/" + folder._id style="text-decoration: none;" class="photo-link")
+                  .single-team
+                    img(src='/img/photos/' + folder.folder_img alt=folder.folder_img)
+                    .team-text
+                      h2= folder.name
+                      p Collection
+                      h1
+                        i.fa.fa-hand-pointer-o.icon-4x(aria-hidden='true')
+                    .content
+                      h1(style="text-shadow: 0 0 10px #000000;")= folder.name
+                      h1 . . .
+
+        hr
+        .team_area_mobile 
+          .col.justify-content-center
+            each folder in variables.folders
+              .row.banner-image(data-aos="zoom-in")
+                a(href="/folders/" + folder._id style="text-decoration: none;" class="photo-link")
+                    img(src='/img/photos/' + folder.folder_img alt=folder.folder_img)
+                    .content
+                      h2(style="text-shadow: 0 0 10px #000000;")= folder.name
+                      h1 . . .
+              
+        //- .row
+        //-   .col-6.banner-info
+        //-     br
+        //-     h1 How To
+        //-     p.big-text  Create Responsive Website
+        //-     p Learn how to make a responsive website using HTML, CSS and bootstrap
+        //-     a.btn.btn-first(href='#') Like Video
+        //-     a.btn.btn-second(href='#') Subscribe Video
+        //-   .col-6.banner-image
+        //-     img.img-responsive(src='img/contact/FB_IMG_1595979508836.jpg')       
+      
+      br
+      .parallax2
+        //- .heading-sm Parallax 2
+
+      section(class="dark")
+        #services.services
+          h1.title Our Services
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ipsum neque, nobis ratione vitae eum quibusdam quidem culpa dolorum autem sequi. Rem at beatae debitis.
+          .diff_services
+            .diff_service_item
+              img(src='https://i.imgur.com/wyeA7Ct.png', alt='Service_image')
+              h3 Web Development
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+            .diff_service_item
+              img(src='https://i.imgur.com/zOqXKNN.png', alt='Service_image')
+              h3 App Development
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+            .diff_service_item
+              img(src='https://i.imgur.com/TLy9GMu.png', alt='Service_image')
+              h3 PSD to HTML
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+      
+      .parallax3
+        .loginBox
+          .glass(data-aos="zoom-in")
+            h3 Let's Get In Touch !!
+            form
+              .inputBox
+                input(type='text', name='', placeholder='Full Name')
+                span
+                  i.fa.fa-user(aria-hidden='true')
+              .inputBox
+                input(type='text', name='', placeholder='Email Id')
+              .inputBox
+                input(type='text', name='', placeholder='Phone Number')
+              br
+              .inputBox
+                input(type='textarea', name='', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
+              br
+              input(type='submit', name='', value='Submit')
+        
+
+      //- section(class="dark")
+      //-   #contactus.contactus
+      //-     h1.title Contact Us
+      //-     .form_wrapper
+      //-       .form_input
+      //-         input(type='text', placeholder='Email')
+      //-       .form_input
+      //-         input(type='text', placeholder='Subject')
+      //-       .form_input
+      //-         textarea(placeholder='Message')
+      //-       .btn
+      //-         a(href='#') Submit
+      
+      .arrow
+        a(href='#home')
+          img(src='https://i.imgur.com/wre6n0O.png', alt='up_arrow')
+    script(src='https://code.jquery.com/jquery-3.5.1.js', integrity='sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=', crossorigin='anonymous')
+    //- script(src='/js/carousal_slider.js')
+    script(type='text/javascript').
+      $(document).ready(function(){
+      $('.menu-toggle').click(function(){
+      $('.menu-toggle').toggleClass('active')
+      $('.navbar_items').toggleClass('active')
+      })
+      })
+    script(type='text/javascript').
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    script(src="https://unpkg.com/aos@next/dist/aos.js")
+    script. 
+      AOS.init({
+        duration: 1200,
+      });

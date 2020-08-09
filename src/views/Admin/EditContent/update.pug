@@ -1,0 +1,21 @@
+extends ../../layout.pug
+
+block content
+  .container
+    br
+    h4 Form to update folder
+    br
+    form(action="/folderUpdate/" + folder._id method="post" enctype="multipart/form-data" style="width: 50%;")
+        .form-group
+            label(for='Folder Name') Folder Name
+            input.form-control(type="text" value=folder.name required="required" name="folder" autofocus)
+        
+        .form-group
+            label(for='exampleFormControlFile1') Folder picture
+            input#exampleFormControlFile1.form-control-file(type="file" placeholder="folder picture" name="file")
+        button.btn.btn-primary Update
+    br
+    div(class="card" style="width: 18rem;")
+      img(class="card-img-top" src='/img/photos/' + folder.folder_img alt="folder.folder_img")
+      div(class="card-body")
+        p(class="card-text")= folder.name

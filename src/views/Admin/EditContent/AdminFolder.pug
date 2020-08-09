@@ -1,0 +1,48 @@
+extends ../../layout.pug
+
+block content
+    body
+        a(href="/EditContent" class="btn btn-secondary" style="border: 1px solid black; box-shadow: 5px 10px 10px #0e0c0c; float: right; margin-right: 50px;") Go Back
+        h2=folder.name 
+        br
+        .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-5
+            each photo in photos
+                .col.mb-4
+                    div(style="border: 1px solid black; box-shadow: 5px 10px 10px #0e0c0c;")
+                        a(href='/img/photos/' + photo.image style="text-decoration: none;", data-lightbox='mygallery')
+                            div(class="card")
+                                br
+                                img(class="card-img-top" src='/img/photos/' + photo.image alt="photo.image" style="height:250px;width:100%;box-shadow: 8px 10px 10px #0e0c0c;")
+                                div(class="card-body" style="text-align: center")
+                                    a(href="/deleteImage/" + photo._id class="btn btn-danger" onclick="return ConfirmDeleteFolder();" style="margin-right: 10px; box-shadow: 5px 10px 10px #0e0c0c;") Delete
+                                    br
+                                    br
+                    br
+                    br
+                    
+block styles
+    link(rel='stylesheet' href="/css/imageGallery1.css" , media='all')
+    link(rel='stylesheet' href="/css/lightbox.min.css")
+block javascript
+  script(src="/js/lightbox-plus-jquery.min.js")
+  script(type='text/javascript').
+      document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+
+
+//-         form.form-horizontal
+//-             .form-group
+//-                 label.col-sm-2.control-label(for='name') Name
+//-                 .col-sm-10
+//-                 input#name.form-control(disabled='')
+//-             .form-group
+//-                 label.col-sm-2.control-label(for='postcode') Postcode
+//-                 .col-sm-10
+//-                 input#postcode.form-control(disabled='')
+//-             .form-group
+//-                 .col-sm-offset-2.col-sm-10
+//-                 button#edit.btn.btn-default(type='edit', onclick='return handleEdit()') Edit
+//-                 button#save.btn.btn-default(type='submit', hidden='') Save
+//- block javascript 
+//-     script(src="/js/editable.js")

@@ -1,0 +1,20 @@
+extends ../../layout.pug
+
+block content
+    .container
+        br
+        br
+        br
+       
+        h1 Hello Admins! Welcome to the ADMIN Section for editing the contents.
+        h2 User : #{user.local.email}
+        a(href="/logout" class="btn btn-primary" style="float:right;") Logout
+        br
+        br
+        hr
+        br
+        
+        a(href="/EditContent" class="btn btn-primary" style="float:center;") Edit content
+
+
+        

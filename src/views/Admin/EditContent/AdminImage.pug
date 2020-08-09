@@ -1,0 +1,33 @@
+extends ../../layout.pug
+
+block content   
+  body
+    h2 Hello From Single Folders - ADMIN View Only!!
+    .container
+      //- .gallery
+      //-   each photo in photos
+      //-     a(href='/img/photos/' + photo.image, data-lightbox='mygallery')
+      //-       img(src='/img/photos/' + photo.image alt="photo.image")
+      //-       a(href="/deleteImage/" + photo._id class="btn btn-primary") Delete
+
+
+      .card-deck
+            each photo in photos
+                .col-md-6
+                    a(href='/img/photos/' + photo.image style="text-decoration: none;" class="photo-link")
+                        .card(class="box box-higher" id="drop-shadow")
+                            img.card-img(src='/img/photos/' + photo.image alt="photo.image")
+                            .details
+                                .card-img-overlay.d-flex.flex-column.justify-content-center
+                                    .content
+                                        a(href="/deleteImage/" + photo._id class="btn btn-primary") Delete
+                        
+block styles
+  link(rel='stylesheet' href="/css/imageGallery.css")
+  link(rel='stylesheet' href="/css/lightbox.min.css")
+block javascript
+  script(src="/js/lightbox-plus-jquery.min.js")
+  script(type='text/javascript').
+      document.addEventListener('contextmenu', event => event.preventDefault());
+
+

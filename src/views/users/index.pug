@@ -1,0 +1,191 @@
+extends ../layout.pug
+
+block content 
+  block content 
+  link(rel='stylesheet', type='text/css', href='/css/style.css')
+  link(rel='stylesheet', type='text/css', href='/css/contact.css')
+  link(rel='stylesheet', type='text/css', href='/css/adminProfile.css')
+  link(rel='stylesheet', type='text/css', href='/css/modal.css')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css")
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+
+  body
+    #home.main_container
+      .navbar
+        .logo
+          a(href='#' style="text-decoration: none;" data-aos="zoom-in") 
+            span Anoop Arunan
+            span.subTitle  Photography
+          
+        .menu-toggle(data-aos="fade-left")
+        .navbar_items
+          ul
+            li
+              a.active(href='#') Home
+            li
+              a(href='#about') About Me
+            li
+              a(href='#services') Services
+            li
+              a(href='#photos') Photos
+            li
+              a(href='#contactus') Contact    
+      
+      .parallax5 
+        each mainImage in Slot_1_List
+          img(src='img/Slot_1_Image/' + mainImage alt='Image 1' style="background: linear-gradient(to top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);")
+          //- h1 Hello
+      section
+        #about.about
+          .row
+            //- .col-6.banner-info
+            .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
+              div(class="item-text" data-aos="fade-right")
+                br
+                h1 About Me
+                br
+                p.big-text  Create Responsive Website
+                p Learn how to make a responsive website using HTML, CSS and bootstrap
+                a.btn.btn-first(href='#') Like Video
+                a.btn.btn-second(href='#') Subscribe Video
+            //- .col-6.banner-image
+            .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
+              div(class="item-img" data-aos="fade-left")
+                each slot2 in Slot_2_List
+                  img.img-responsive(src='img/Slot_2_Image/' + slot2)     
+            
+      .background-img
+        each slot3 in Slot_3_List
+          img(src='img/Slot_3_Image/' + slot3)
+        
+      .text_parallax 
+        #photos.photos
+          h2(style="font-size : 40px;") Gallery 
+          br
+          br
+          br
+          .team-area
+            .row
+              each folder in variables.folders
+                .col-6(data-aos="zoom-in")
+                  a(href="/folders/" + folder._id style="text-decoration: none;" class="photo-link")
+                    .single-team
+                      img(src='/img/photos/' + folder.folder_img alt=folder.folder_img)
+                      .team-text
+                        h2= folder.name
+                        p Collection
+                        h1
+                          i.fa.fa-hand-pointer-o.icon-4x(aria-hidden='true')
+                      .content
+                        h1(style="text-shadow: 0 0 10px #000000;")= folder.name
+                        h1 . . .
+        .text_parallax
+          .team_area_mobile 
+            .col.justify-content-center
+              each folder in variables.folders
+                .row.banner-image(data-aos="zoom-in")
+                  a(href="/folders/" + folder._id style="text-decoration: none;" class="photo-link")
+                      img(src='/img/photos/' + folder.folder_img alt=folder.folder_img)
+                      .content
+                        h2(style="text-shadow: 0 0 10px #000000;")= folder.name
+                        h1 . . .
+      br
+      br
+      br
+      .background-img
+        each slot4 in Slot_4_List
+          img(src='img/Slot_4_Image/' + slot4)
+        br
+        br
+      .text_parallax
+        section(class="dark")
+          #services.services
+            h1.title Our Services
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ipsum neque, nobis ratione vitae eum quibusdam quidem culpa dolorum autem sequi. Rem at beatae debitis.
+            .diff_services
+              .diff_service_item
+                img(src='https://i.imgur.com/wyeA7Ct.png', alt='Service_image')
+                h3 Web Development
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+              .diff_service_item
+                img(src='https://i.imgur.com/zOqXKNN.png', alt='Service_image')
+                h3 App Development
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+              .diff_service_item
+                img(src='https://i.imgur.com/TLy9GMu.png', alt='Service_image')
+                h3 PSD to HTML
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+      
+      #contactus
+        .contact-img
+          each slot5 in Slot_5_List
+            img(src='img/Slot_5_Image/' + slot5)
+          .loginBox
+            .glass(data-aos="zoom-in")
+              h3 Let's Get In Touch !!
+              form(action="/contact" method="post")
+                .inputBox
+                  input(type='text', name='name', placeholder='Name')
+                  span
+                    i.fa.fa-user(aria-hidden='true')
+                .inputBox
+                  input(type='text', name='email', placeholder='Email')
+                .inputBox
+                  input(type='text', name='phone', placeholder='Phone Number')
+                br
+                .inputBox
+                  input(type='textarea', name='message', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
+                br
+                br
+                input(type='submit', name='', value='Send')
+      
+      .arrow
+        a(href='#home')
+          img(src='https://i.imgur.com/wre6n0O.png', alt='up_arrow')
+    script(src='https://code.jquery.com/jquery-3.5.1.js', integrity='sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=', crossorigin='anonymous')
+    //- script(src='/js/carousal_slider.js')
+    script(type='text/javascript').
+      $(document).ready(function(){
+      $('.menu-toggle').click(function(){
+      $('.menu-toggle').toggleClass('active')
+      $('.navbar_items').toggleClass('active')
+      })
+      })
+    script(type='text/javascript').
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    
+    script.
+      $(function(){
+        $('.background-img img').each(function(){
+            var img = $(this).hide();
+            img.parent().css('background-image', 'url(' + img.prop('src') + ')');
+        });
+        });
+    script.
+      $(function(){
+        $('.contact-img img').each(function(){
+            var img = $(this).hide();
+            img.parent().css('background-image', 'url(' + img.prop('src') + ')');
+        });
+        });
+    script.
+      $(function(){
+        $('.parallax5 img').each(function(){
+            var img = $(this).hide();
+            img.parent().css('background-image', 'url(' + img.prop('src') + ')');
+  
+        });
+        });
+
+    script(src="https://unpkg.com/aos@next/dist/aos.js")
+    script. 
+      AOS.init({
+        duration: 1200,
+      });

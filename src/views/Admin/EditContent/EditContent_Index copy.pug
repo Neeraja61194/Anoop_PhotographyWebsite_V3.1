@@ -1,0 +1,277 @@
+extends ../../layout.pug
+
+block content 
+  link(rel='stylesheet', type='text/css', href='/css/style.css')
+  link(rel='stylesheet', type='text/css', href='/css/contact.css')
+  link(rel='stylesheet', type='text/css', href='/css/adminProfile.css')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css")
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+
+  body
+    #home.main_container
+      .navbar
+        .logo
+          a(href='#' style="text-decoration: none;" data-aos="zoom-in") 
+            span Anoop Arunan
+            span.subTitle  Photography
+          
+        .menu-toggle
+        .navbar_items
+          ul
+            li
+              a.active(href='#') Home
+            li
+              a(href='#about') About Me
+            li
+              a(href='#services') Services
+            li
+              a(href='#photos') Photos
+            li
+              a(href='#contactus') Contact
+        .dropdown
+          button.dropbtn Your Profile
+          //- a(href="/yourProfile" class="dropbtn") Your Profile
+          .dropdown-content
+            br
+            a(href='/updateEmail') Update Email
+            //- a(href='/updatePassword') Update Password
+            a(href='/deleteAccount' onclick="return ConfirmDelete();") Delete Account
+            a(href='/logout') Logout
+    
+      
+      //- .slideshow-container
+      //-   each mainImage in mainImages_List
+      //-     .mySlides
+      //-       img(src='img/landing_images/' + mainImage style='width:100%;max-height: 800px;')
+      //-       .heading-sm 
+      //-         button(href="/newFolder" class="btn") ___
+      //-           span.fa.fa-edit(aria-hidden='true' style="color:white; font-size:48px;")
+      .parallax5 
+
+      br
+      br
+      br
+      section
+        #about.about
+          .row
+            .col-6.banner-info
+              div(class="item-text" data-aos="fade-right")
+                br
+                h1 About Me
+                br
+                p.big-text  Create Responsive Website
+                p Learn how to make a responsive website using HTML, CSS and bootstrap
+                a.btn.btn-first(href='#') Like Video
+                a.btn.btn-second(href='#') Subscribe Video
+            .col-6.banner-image
+              div(class="item-img" data-aos="fade-left")
+                img.img-responsive(src='img/contact/FB_IMG_1595979508836.jpg')
+                .heading-sm 
+                  a(href="/newFolder" class="btn" style=" box-shadow: 5px 10px 10px #0e0c0c;") _
+                    span.fa.fa-edit(aria-hidden='true' style="color:white; font-size:48px;")
+
+      .parallax1
+        .heading-sm 
+          //- a(href="/newFolder" class="btn" style=" box-shadow: 5px 10px 10px #0e0c0c;") _
+          button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal')
+            span.fa.fa-edit(aria-hidden='true' style="color:white; font-size:48px;")
+          a(href="/Parallax1" class="btn btn-primary" style="float: right; box-shadow: 5px 10px 10px #0e0c0c;") New Image    
+            span.fa.fa-folder(aria-hidden='true' style="color:white;")    
+      hr
+      // Trigger the modal with a button
+      br
+      br
+      button.btn.btn-info.btn-lg(type='button', data-toggle='modal', data-target='#myModal') Open Modal
+      // Modal
+      #myModal.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h4.modal-title Update Image
+            .modal-body
+              p Update this Image with another one
+              br
+              form(action="/websiteContent" method="post" enctype="multipart/form-data" style="width: 50%;")     
+                //- .form-group
+                //-   label(for='Folder Name') Folder Name
+                //-   input.form-control(type="text" required="required" name="folder" autofocus)           
+                .form-group
+                    label(for='exampleFormControlFile1') Upload picture
+                    input#exampleFormControlFile1.form-control-file(type="file" name="file")
+                button.btn.btn-primary Update
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Close
+                  
+      #photos.photos
+        h2.w3-text-light-grey My Photos 
+        br
+        br
+        a(href="/newPhoto" class="btn btn-primary btn-lg" style="float: right; margin-left: 30px; margin-right: 30px; box-shadow: 5px 10px 10px #0e0c0c;") New Image    
+          span.fa.fa-picture-o(aria-hidden='true' style="color:white;")
+        a(href="/newFolder" class="btn btn-primary btn-lg" style="float: right; box-shadow: 5px 10px 10px #0e0c0c;") New Folder    
+          span.fa.fa-folder(aria-hidden='true' style="color:white;")
+        br
+        br
+        br
+        br
+        br
+        //- .card-deck
+        //-     each folder in variables.folders
+        //-         .col-md-6
+        //-             a(href="/adminFolders/" + folder._id style="text-decoration: none;" class="photo-link")
+        //-                 .card(class="box box-higher" id="drop-shadow")
+        //-                     img.card-img(src='/img/photos/' + folder.folder_img alt=folder.folder_img)
+        //-                     .details
+        //-                         .card-img-overlay.d-flex.flex-column.justify-content-center
+        //-                             .content
+        //-                                 h1(class="card-title")= folder.name
+        //-                 a(href="/delete/" + folder._id class="btn btn-primary" onclick="return ConfirmDeleteFolder();") Delete
+        //-                 a(href="/update/" + folder._id class="btn btn-primary") Update
+
+        div(class="card-deck")
+            each folder in variables.folders
+                div(class="col-xs-12 col-md-4 col-lg-3")
+                    div(style="border: 1px solid grey; box-shadow: 5px 5px 10px #0e0c0c;")
+                        a(href="/adminFolders/" + folder._id style="text-decoration: none;" class="photo-link")
+                            div(class="card")
+                                br
+                                img(class="card-img-top" src='/img/photos/' + folder.folder_img alt=folder.folder_img style="height:250px;width:100%;box-shadow: 8px 10px 10px #0e0c0c;")
+                                div(class="card-body" style="text-align: center")
+                                    h4(class="card-title" style="color: black;")= folder.name
+                                    br
+                                    a(href="/delete/" + folder._id class="btn btn-danger" onclick="return ConfirmDeleteFolder();" style="margin-right: 10px; box-shadow: 5px 10px 10px #0e0c0c;") Delete
+                                    a(href="/update/" + folder._id class="btn btn-secondary btn-md" style="border: 1px solid black; box-shadow: 5px 10px 10px #0e0c0c;") Update
+                                    br
+                                    br
+                    br
+                    br
+                    br
+      br
+      br
+      .background-img.active
+        img(src='img/a.png', alt='Image 1')
+      .text_parallax
+        | Lorem ipsum dolores...
+      .background-img
+        img.background-img(src='img/c.jpg', alt='Image 2')
+
+      hr
+      br
+      //- .parallax2
+      //-   img(src="img/SAVE_20200708_105612_1.png" class="scale")
+      //-   .heading-sm 
+      //-     a(href="/UpdateContent" class="btn" style=" box-shadow: 5px 10px 10px #0e0c0c;" onclick="return UpdateContent();") _
+      //-       span.fa.fa-edit(aria-hidden='true' style="color:white; font-size:48px;")
+
+      section(class="dark")
+        #services.services
+          h1.title Our Services
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ipsum neque, nobis ratione vitae eum quibusdam quidem culpa dolorum autem sequi. Rem at beatae debitis.
+          .diff_services
+            .diff_service_item
+              img(src='https://i.imgur.com/wyeA7Ct.png', alt='Service_image')
+              h3 Web Development
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+            .diff_service_item
+              img(src='https://i.imgur.com/zOqXKNN.png', alt='Service_image')
+              h3 App Development
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+            .diff_service_item
+              img(src='https://i.imgur.com/TLy9GMu.png', alt='Service_image')
+              h3 PSD to HTML
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
+      
+      .parallax3
+        .loginBox
+          .glass(data-aos="zoom-in")
+            h3 Let's Get In Touch !!
+            form
+              .inputBox
+                input(type='text', name='', placeholder='Full Name')
+                span
+                  i.fa.fa-user(aria-hidden='true')
+              .inputBox
+                input(type='text', name='', placeholder='Email Id')
+              .inputBox
+                input(type='text', name='', placeholder='Phone Number')
+              br
+              .inputBox
+                input(type='textarea', name='', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
+              br
+              input(type='submit', name='', value='Submit')
+        .heading-sm 
+          a(href="/newFolder" class="btn" style=" box-shadow: 5px 10px 10px #0e0c0c;") _
+            span.fa.fa-edit(aria-hidden='true' style="color:white; font-size:48px;")
+      
+      .arrow
+        a(href='#home')
+          img(src='https://i.imgur.com/wre6n0O.png', alt='up_arrow')
+    script(src='https://code.jquery.com/jquery-3.5.1.js', integrity='sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=', crossorigin='anonymous')
+    script(type='text/javascript').
+      $(document).ready(function(){
+      $('.menu-toggle').click(function(){
+      $('.menu-toggle').toggleClass('active')
+      $('.navbar_items').toggleClass('active')
+      })
+      })
+    script(type='text/javascript').
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    script. 
+      function ConfirmDelete(){
+        if (confirm("Are you sure you want to delete your Account?")){
+              return true;
+        }
+        else {
+          //- alert('You cancelled the deletion of your Account!');
+          return false;
+        }
+      }  
+    script. 
+      function ConfirmDeleteFolder(){
+        if (confirm("Are you sure you want to delete the Folder ? ")){
+              return true;
+        }
+        else {
+          return false;
+        }
+      }  
+    script. 
+      function UpdateContent(){
+        if (confirm("Are you sure you want to delete the Folder ? ")){
+              return true;
+        }
+        else {
+          return false;
+        }
+      }  
+    script.
+      $(function(){
+      var texts = $('.text_parallax');
+      var oldY = 0;
+      $(document).scroll(function(){
+      var y = window.scrollY;
+      texts.each(function(){
+      var text = $(this);
+      if(y >= text.offset().top)
+      text.next().addClass('active');
+      else
+      text.next().removeClass('active');
+      });
+      });
+      });
+
+    script(src="https://unpkg.com/aos@next/dist/aos.js")
+    script. 
+        AOS.init({
+          duration: 1200,
+        });
+    

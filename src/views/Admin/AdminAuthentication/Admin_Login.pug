@@ -1,0 +1,36 @@
+extends ../../layout.pug
+
+block content
+    .container
+        br
+        br
+        h2(style="color: red;") Hello Admins! Welcome to Login Page
+        br
+        h3 Login
+        br
+        -if(message)
+            .alert.alert-danger !{message}
+        //- br
+        //- form(action='/Admin_Login', method='POST')
+        //-     div
+        //-         label(for='email') Email
+        //-         input#email(type='email', name='email', required='')
+        //-     div
+        //-         label(for='password') Password
+        //-         input#password(type='password', name='password', required='')
+        //-     button(type='submit') Login
+        //-     a(href="/Admin_Register") Register
+        //-     br
+            br
+        form(action='/Admin_Login', method='POST' style="width: 50%;")
+            .form-group
+                label(for='email') Email
+                input.form-control(type='email', name='email', required='' autofocus)
+            .form-group
+                label(for='password') Password
+                input.form-control(type='password', name='password', required='')
+            button.btn.btn-primary(type='submit') Login
+            a.btn.btn-link(href='/Admin_Register') Register
+            a.btn.btn-link(href='/forgot') Forgot Password?
+
+        
