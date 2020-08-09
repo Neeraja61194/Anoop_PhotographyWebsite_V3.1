@@ -1,8 +1,8 @@
 .env
 node_modules
 
-photos/*
-!photos/.gitkeep
+img/photos/*
+!img/photos/.gitkeep
 
 ./public/img/Slot_1_Image/*
 !./public/img/Slot_1_Image/.gitkeep
