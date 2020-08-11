@@ -32,7 +32,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 
 const port = process.env.PORT || 3000;
-let uri = 'mongodb://localhost:27017/photoApp';
+let uri = 'mongodb://mongodb:27017/photoApp';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useFindAndModify', false);
 
