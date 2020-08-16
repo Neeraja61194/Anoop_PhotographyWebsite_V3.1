@@ -1,8 +1,9 @@
 version: "2"
 services:
   web:
-   # build: .
-   image: jperump/thenextai:v1.1
+   build: .
+   #image: jperump/thenextai:v1.1
+   image: webapp
    ports:
       - "8080:3000"
    depends_on:
@@ -10,8 +11,22 @@ services:
    links:
       - "mongodb"
    container_name: webapp
+   command: npx nodemon -L app.js
+   volumes:
+      - ./images/icons:/srv/app/public/img/icons
+      - ./images/photos:/srv/app/public/img/photos
+      - ./images/Slot_1_Image:/srv/app/public/img/Slot_1_Image
+      - ./images/Slot_2_Image:/srv/app/public/img/Slot_2_Image
+      - ./images/Slot_3_Image:/srv/app/public/img/Slot_3_Image
+      - ./images/Slot_4_Image:/srv/app/public/img/Slot_4_Image
+      - ./images/Slot_5_Image:/srv/app/public/img/Slot_5_Image
   mongodb:
    image: mongo
    ports:
       - "27017:27017"
    container_name: mongodb
+   volumes:
+      - ./database:/data/db
+volumes:
+   images: 
+   database:

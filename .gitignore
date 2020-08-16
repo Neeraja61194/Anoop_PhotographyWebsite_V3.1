@@ -1,6 +1,9 @@
 .env
+images/
+database/
+.dockerignore
 
-public/img/photos/*.jpg
+public/img/photos/*
 !public/img/photos/.gitkeep
 
 public/img/Slot_1_Image/*
