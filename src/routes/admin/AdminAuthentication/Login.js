@@ -18,20 +18,16 @@ const post_AdminLogin = passport.authenticate('local-login', {
 
 const admin_IndexPage = async (req, res) => {
   try {
-    res.render('Admin/AdminAuthentication/Admin_Index', { user: req.user });
+    var userEmail = req.user.local.email;
+    // res.redirect('/Admin_Index/' + userEmail)
+   res.render('Admin/AdminAuthentication/Admin_Index', { user: req.user });
 } catch (err) {
     console.log("ERR: ", err)
 }
 }
 
-const logout = function(req, res) {
-  req.logout();
-  res.redirect('/');
-}
-
 module.exports = {
     get: get_AdminLogin,
     post: post_AdminLogin,
-    index: admin_IndexPage,
-    logout: logout
+    index: admin_IndexPage
 }

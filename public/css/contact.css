@@ -1,7 +1,7 @@
 
 .loginBox {
     width: 45%;
-    height: 45%;
+    height: 50%;
 	position: relative;
 	top: 50%;
 	left: 20%;
@@ -10,7 +10,7 @@
 	box-sizing: border-box;
 	background: transparent;
 	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
-	background-color: rgba(12, 12, 12, 0.8);
+	background-color: rgba(12, 12, 12, 0.5);
 	/* background-color: rgba(255, 255, 255, 0.2); */
 	border-radius: 5px;
 	transition: .5s;
@@ -44,6 +44,7 @@
 .loginBox input[type="text"] {
 	border: none;
 	border-bottom: 2px solid #e4ce0d;
+	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.8);
 	/* border-bottom: 1px solid red; */
 	outline: none;
 	height: 40px;
@@ -59,6 +60,7 @@
 .loginBox input[type="textarea"] {
 	border: none;
 	border: 2px solid #e4ce0d;
+	box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.8);
 	outline: none;
 	/* height: 40px; */
     /* color: #e4ce0d; */
@@ -83,7 +85,8 @@
 	position: absolute;
 	top: 10px;
     /* color: #262626; */
-    color: white;
+	color: white;
+	font-size: 28px;
 
 }
 
@@ -95,11 +98,30 @@
 	/* background: rgba(255, 255, 255, 0.8); */
 	/* background: #06f3fc; */
 	background: #e4ce0d;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
 	color: black;
 	border-radius: 2px;
 	cursor: pointer;
 }
 
+.contact-address {
+	float: right;
+	color: white;
+	text-shadow: 0px 5px 5px rgb(0, 0, 0);
+	width: 15%;
+    height: 20%;
+	position: relative;
+	margin-left: 6%;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	background: transparent;
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+	background-color: rgba(12, 12, 12, 0.2);
+	/* background-color: rgba(255, 255, 255, 0.2); */
+	border-radius: 5px;
+	transition: .5s;
+	border: 2px solid #e4ce0d;
+}
 @media (max-width: 768px){
 	.loginBox {
 		width: 350px;
