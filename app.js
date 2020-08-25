@@ -49,7 +49,6 @@ app.set('view engine', 'pug');
 const User = require('./models/user');
 const Image = require('./models/image');
 const Folder = require('./models/folder');
-const websiteContent = require('./models/websiteContent');
 
 // SET STORAGE
 var storage = multer.diskStorage({
