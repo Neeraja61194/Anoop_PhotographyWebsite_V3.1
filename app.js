@@ -19,7 +19,7 @@ const session = require('express-session');
 const methodOverride = require('method-override')
 const AOS = require('aos')
 
-const app = express();
+app = express();
 
 //Passport 
 require('./app_passport')(passport); // pass passport to app_passport.js
@@ -32,7 +32,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 
 const port = process.env.PORT || 3000;
-let uri = 'mongodb://mongodb:27017/photoApp';
+let uri = 'mongodb://localhost:27017/photoApp';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useFindAndModify', false);
 
@@ -62,10 +62,14 @@ var storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage });
 
+// Restrict Global Variable
+var restrict = false;
+
 //Routes - User view 
 const home = require('./src/routes/users/UserIndex');
-const userFolderView = require('./src/routes/users/UserFolder')
+const { folder: userFolderView, singleFolder: singleFolder } = require('./src/routes/users/UserFolder')
 const contact = require('./src/routes/users/Contact')
+const errorPage = require('./src/routes/users/ErrorPage')
 
 // Routes - Admin ONLY ==> EditContent Section
 const editContent_home = require('./src/routes/admin/EditContent/EditContent_Index');
@@ -74,18 +78,26 @@ const { get: new_Image, post: post_Images, delete: delete_Image } = require('./s
 const { get: getUpdate_Email, post: postUpdate_Email } = require('./src/routes/admin/EditContent/UpdateEmail');
 const { get: getUpdate_Psw, post: postUpdate_Psw } = require('./src/routes/admin/EditContent/UpdatePassword');
 const delete_Account = require('./src/routes/admin/EditContent/DeleteAccount');
-const { slot_1: postSlot_1, slot_2: postSlot_2, slot_3: postSlot_3, slot_4: postSlot_4, slot_5: postSlot_5 } = require('./src/routes/admin/EditContent/WebsiteContent');
+const restart = require('./src/routes/admin/EditContent/RestartApp')
+const viewAdmins = require('./src/routes/admin/EditContent/ViewAdmins')
+const { slot_1: postSlot_1, slot_2: postSlot_2, slot_3: postSlot_3, slot_4: postSlot_4, slot_5: postSlot_5, Edit_About: Edit_AboutSection, Edit_Services: Edit_ServicesSection } = require('./src/routes/admin/EditContent/WebsiteContent');
 
 // Routes - Admin ONLY ==> Authentication Section
-const { get: get_securityKey, post: post_securityKey } = require('./src/routes/admin/AdminAuthentication/Security');
-const {  get: get_AdminLogin, post: post_AdminLogin, index: admin_IndexPage, logout: logout } = require('./src/routes/admin/AdminAuthentication/Login');
+const { get: get_securityKey} = require('./src/routes/admin/AdminAuthentication/Security');
+const {  get: get_AdminLogin, post: post_AdminLogin, index: admin_IndexPage} = require('./src/routes/admin/AdminAuthentication/Login');
 const {  get: get_AdminRegister, post: post_AdminRegister } = require('./src/routes/admin/AdminAuthentication/Register');
+// var logout = require('./src/routes/admin/AdminAuthentication/Logout');
 
 //User Section
 app.get('/', home);
 app.get('/folders/:id', userFolderView);
+app.get('/folder/:name', singleFolder);
+
 //User Section - Contact Form
 app.post('/contact', contact);
+
+//User Section - Error Page !!
+app.get('/Error!', errorPage);
 
 // Admin EditContent Section ==> 1. Main Page
 app.get('/EditContent', isLoggedIn ,editContent_home)
@@ -112,26 +124,68 @@ app.post('/updatePassword', isLoggedIn, postUpdate_Psw);
 // Admin EditContent Section ==> 5. Account Section - Delete Account
 app.get('/deleteAccount', isLoggedIn, delete_Account);
 
-// Admin EditContent Section ==> 5. Website Contents - Images
+// Admin EditContent Section ==> 6. Restart the Application (after background image Updates)
+app.get('/restart',isLoggedIn, restart)
+
+// Admin EditContent Section ==> 7. View All Admins
+app.get('/viewAdmins',isLoggedIn, viewAdmins)
+
+// Admin EditContent Section ==> 8. Website Contents - Images
 app.post('/slot_1', isLoggedIn, upload.single('file'), postSlot_1);
 app.post('/slot_2', isLoggedIn, upload.single('file'), postSlot_2);
 app.post('/slot_3', isLoggedIn, upload.single('file'), postSlot_3);
 app.post('/slot_4', isLoggedIn, upload.single('file'), postSlot_4);
 app.post('/slot_5', isLoggedIn, upload.single('file'), postSlot_5);
+app.post('/slot_About', isLoggedIn, Edit_AboutSection);
+app.post('/slot_Services', isLoggedIn, Edit_ServicesSection);
 
 // Admin Authentication Section ==> 1. Security Key Page
-app.get('/security', get_securityKey);
-app.post('/security', post_securityKey);
- 
+app.get('/' + process.env.Path1, get_securityKey);
+// app.post('/security', post_securityKey);
+
+function setRestrictTrue(){
+  restrict = true;
+  };
+
+app.post('/' + process.env.Path1, (req, res) => {
+  const admin_code = generate_AdminCode(process.env.admin_code)
+  try {
+    if (bcrypt.compareSync(req.body.sec_key, admin_code)) {
+      setRestrictTrue();
+      res.render('Admin/AdminAuthentication/Admin_Login');
+    } else {
+      console.log("Error : Security Key is incorrect");
+      res.redirect('/'+ process.env.Path1);  
+    }
+  } catch (e) {
+    return done(e)
+  }
+});
+
+function setRestrictFalse(){
+  restrict = false;
+  };
+
+var restrictPage = function(req, res, next) {
+  if (restrict === false)
+    return res.redirect('/Error!')
+  next();
+};
+
 // Admin Authentication Section ==> 2. Admin Login
-app.get('/Admin_Login', get_AdminLogin)
+app.get('/Admin_Login', restrictPage, get_AdminLogin)
 app.post('/Admin_Login', post_AdminLogin)
 app.get('/Admin_Index', isLoggedIn, admin_IndexPage)
-app.get('/logout', logout);
+
+app.get('/logout', function(req, res) {
+  setRestrictFalse();
+  req.logout();
+  res.redirect('/');
+});
 
 // Admin Authentication Section ==> 3. Admin Registration
-app.get('/Admin_Register', get_AdminRegister);
-app.post('/Admin_Register', post_AdminRegister);
+app.get('/' + process.env.Path2, restrictPage, get_AdminRegister);
+app.post('/' + process.env.Path2 , post_AdminRegister);
 
 // Checks if User is logged or authenticated to access that particular page
 function isLoggedIn(req, res, next) {
@@ -142,6 +196,13 @@ function isLoggedIn(req, res, next) {
   // res.status(400).send('Not found')
   res.redirect('/');
 }
+var generate_AdminCode = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+};
+
+app.use((req, res, next) => {
+  return res.redirect('/Error!')
+});
 
 app.listen(port, () => {
   console.log(`listening at port ${chalk.green(port)}`);
