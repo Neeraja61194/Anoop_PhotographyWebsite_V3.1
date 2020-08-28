@@ -51,7 +51,7 @@ const home = async (req, res) => {
         folders: documents
     }
     const img_documents = await Image.find().exec();
-    res.render('users/index', { variables: indexVariables, photos: img_documents, Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_address});
+    res.render('users/index', { variables: indexVariables, photos: img_documents, Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_address,  user: req.user});
 }
 
 module.exports = home;

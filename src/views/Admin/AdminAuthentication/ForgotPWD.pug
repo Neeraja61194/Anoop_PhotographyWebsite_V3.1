@@ -1,0 +1,26 @@
+extends ../../layout.pug
+
+block content
+    .container
+        br
+        br
+        h2(style="color: red;") Forgot Password ?
+        br
+        h4 Enter the Email Id and a link will be sent to reset the password.
+        br
+        if messages.error
+            .alert.alert-danger
+                div= messages.error
+        if messages.info
+            .alert.alert-info
+                div= messages.info
+        if messages.success
+            .alert.alert-success
+                div= messages.success
+            
+        form(action='/forgotPassword', method='POST' style="width: 50%;")
+            .form-group
+                label(for='email') Email
+                input.form-control(type='text', name='email', autofocus)
+            br
+            button.btn.btn-primary(type='submit') Send Reset Link

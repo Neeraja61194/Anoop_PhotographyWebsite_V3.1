@@ -6,15 +6,19 @@ block content
         br
         br
        
-        h1 Hello Admins! Welcome to the ADMIN Section for editing the contents.
-        h2 User : #{user.local.email}
-        a(href="/logout" class="btn btn-primary" style="float:right;") Logout
+        h2(style="color: red;") Hello 
+            span(style="color: black;") #{user.username}! 
+            span(style="color: red;") Welcome to the ADMIN Section. 
+        br
+        h3 Email : #{user.email}
+        br
+        a(href="/logout" class="btn btn-primary" style="float:right;box-shadow: 5px 5px 10px #0e0c0c;font-size: 18px;") Logout
         br
         br
         hr
+        h5(style="color: red;") Please click the "Edit Content" button to modify the website.
         br
-        
-        a(href="/EditContent" class="btn btn-primary" style="float:center;") Edit content
+        a(href="/EditContent" class="btn btn-primary" style="float:center;box-shadow: 5px 5px 10px #0e0c0c;font-size: 18px;") Edit content
 
 
         

@@ -11,7 +11,7 @@ const viewAdmins = async (req, res) => {
             users.forEach(user => { 
                 var newDate = moment(user.created).format('LLL');
                 dict.push({
-                    admins: user.local.email,
+                    admins: user.email,
                     dateCreated: newDate
                 });
               }); 

@@ -1,0 +1,19 @@
+extends ../../layout.pug
+
+block content
+    .container
+        br
+        br
+        h2(style="color: red;") Reset Password
+        br
+        h4 Enter new Password
+        br
+        form(method='POST' style="width: 50%;")
+            .form-group
+                label(for='password') New Password
+                input.form-control(type='password', name='password', value='', autofocus=true)
+            .form-group
+                label(for='confirm') Confirm Password
+                input.form-control(type='password', name='confirm', value='')
+            .form-group
+            button.btn.btn-primary(type='submit') Update Password
