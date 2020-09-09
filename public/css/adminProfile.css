@@ -82,3 +82,13 @@
   }
   
 }
+/*Firefox Browser*/
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .dropbtn {
+		background-color: #0e90c4;
+		color: white;
+		padding: 10px;
+		font-size: 15px;
+		
+	  }
+}

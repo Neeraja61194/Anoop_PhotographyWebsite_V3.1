@@ -17,23 +17,23 @@ block content
 
   body
     #home.main_container
-      .navbar
+      .navbar(data-aos="fade-down")
         .logo
           a(href='#' style="text-decoration: none;" data-aos="zoom-in") 
             span Anoop Arunan
             span.subTitle  Photography
           
-        .menu-toggle(data-aos="fade-left")
+        .menu-toggle(data-aos="fade-down")
         .navbar_items
           ul
             li
               a.active(href='#') Home
             li
-              a(href='#about') About Me
-            li
-              a(href='#services') Services
+              a(href='#about') About
             li
               a(href='#photos') Photos
+            li
+              a(href='#services') Services
             li
               a(href='#contactus') Contact    
       
@@ -43,22 +43,32 @@ block content
           //- h1 Hello
       section
         #about.about
-          .row
+          .row.row-cols-1.row-cols-sm-2
             //- .col-6.banner-info
-            .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
+            //- .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
+            //- div(class="col-lg-6")
+            .col.mb-4
               div(class="item-text" data-aos="fade-right")
                 br
-                h1 About Me
+                h1=config_aboutHeading
                 br
-                p.big-text  Create Responsive Website
+                h4 Address : #{config_address}
+                p.big-text  Anoop Arunan is a Vancouver based Photographer
                 p Learn how to make a responsive website using HTML, CSS and bootstrap
                 a.btn.btn-first(href='#') Like Video
                 a.btn.btn-second(href='#') Subscribe Video
             //- .col-6.banner-image
-            .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
+            //- .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
+            //- div(class="col-lg-6")
+            .col.mb-4
               div(class="item-img" data-aos="fade-left")
                 each slot2 in Slot_2_List
-                  img.img-responsive(src='img/Slot_2_Image/' + slot2)     
+                  img.img-responsive(src='img/Slot_2_Image/' + slot2 style="box-shadow: 15px 10px 20px rgb(0, 0, 0);")     
+      //- .row
+      //-   .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='' style="text-align: center; color : red;")
+      //-     | Content 1
+      //-   .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
+      //-     | Content 2
             
       .background-img
         each slot3 in Slot_3_List
@@ -66,7 +76,7 @@ block content
         
       .text_parallax 
         #photos.photos
-          h2(style="font-size : 40px;") Gallery 
+          h2.w3-text-light-grey(data-aos="fade-down" style="color:rgb(8, 92, 161);") Gallery 
           br
           br
           br
@@ -90,7 +100,7 @@ block content
             .col.justify-content-center
               each folder in variables.folders
                 .row.banner-image(data-aos="zoom-in")
-                  a(href="/folders/" + folder._id style="text-decoration: none;" class="photo-link")
+                  a(href="/folders/" + folder.name style="text-decoration: none;" class="photo-link")
                       img(src='/img/photos/' + folder.folder_img alt=folder.folder_img)
                       .content
                         h2(style="text-shadow: 0 0 10px #000000;")= folder.name
@@ -106,46 +116,61 @@ block content
       .text_parallax
         section(class="dark")
           #services.services
-            h1.title Our Services
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ipsum neque, nobis ratione vitae eum quibusdam quidem culpa dolorum autem sequi. Rem at beatae debitis.
-            .diff_services
-              .diff_service_item
-                img(src='https://i.imgur.com/wyeA7Ct.png', alt='Service_image')
-                h3 Web Development
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
-              .diff_service_item
-                img(src='https://i.imgur.com/zOqXKNN.png', alt='Service_image')
-                h3 App Development
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
-              .diff_service_item
-                img(src='https://i.imgur.com/TLy9GMu.png', alt='Service_image')
-                h3 PSD to HTML
-                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, blanditiis.
-      
+            h2(style="color: #e4ce0d;" data-aos="fade-down") Services
+            hr
+            br
+            .two-col(data-aos="fade-down")
+              //- h4 1. Photgraphy
+              //- p
+              //-   | It is a long established factn looking at its layout. he point of using Lorem Ipsum is that.
+              h4 1. #{config_Point_1}
+              p #{config_Para_1}
+              h4 2. Photo and Video Editing
+              p
+                //- | It is a long established factn looking at its layout.-less normal to using 'Content here, content here', making it look like readable.
+              br
+              hr
+            .two-col(data-aos="fade-down")
+              h4 3. Photoshop
+              p
+                //- | It is a long established factn looking at its layout. he point of using Lorem Ipsum is that.
+              h4 4. Reasonable Pricing
+              p
+                //- | It is a long established factn looking at its layout.-less normal to using 'Content here, content here', making it look like readable.
+              br
+              hr
+            
       #contactus
         .contact-img
           each slot5 in Slot_5_List
             img(src='img/Slot_5_Image/' + slot5)
           .loginBox
-            .glass(data-aos="zoom-in")
+            .glass(data-aos="fade-down")
               h3 Let's Get In Touch !!
+              //- h5 I would love to hear from you...
               form(action="/contact" method="post")
                 .inputBox
                   input(type='text', name='name', placeholder='Name')
-                  span
-                    i.fa.fa-user(aria-hidden='true')
+                  span.fa.fa-user(aria-hidden='true')
                 .inputBox
                   input(type='text', name='email', placeholder='Email')
+                  span.fa.fa-envelope(aria-hidden='true' style="font-size: 24px;")
                 .inputBox
                   input(type='text', name='phone', placeholder='Phone Number')
+                  span.fa.fa-phone(aria-hidden='true')
                 br
                 .inputBox
                   input(type='textarea', name='message', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
                 br
                 br
-                input(type='submit', name='', value='Send')
-      
+                input(type='submit', name='', value='Send Message')
+          .contact-address
+            h1 Address
+            h4 Phone :
+            h6 You can find me here 
+            span.fa.fa-facebook-square(aria-hidden='true') 
+            br
+            span.fa.fa-instagram(aria-hidden='true')
       .arrow
         a(href='#home')
           img(src='https://i.imgur.com/wre6n0O.png', alt='up_arrow')
@@ -187,5 +212,5 @@ block content
     script(src="https://unpkg.com/aos@next/dist/aos.js")
     script. 
       AOS.init({
-        duration: 1200,
+        duration: 1600,
       });

@@ -1,11 +1,1 @@
-{
-    "mongodb": {
-      "host": "mongodb",
-      "port": 27017
-    },
-
-    "text": {
-        "aboutUs": "Hello from About Us",
-        "ourServices": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsam labore quos quam, tempora recusandae nemo laudantium, ad vitae vel repellendus dolores placeat. Velit distinctio natus, facilis quia! Voluptas nam, animi quidem doloremque mollitia accusamus voluptatum quos totam consequatur. Temporibus rerum recusandae nobis vel architecto beatae esse facilis repellat. Et repellat similique ad ab harum doloribus dolorum. Iste suscipit blanditiis vero qui aliquid omnis quasi, delectus vel adipisci et ratione maiores soluta facilis earum voluptate."
-    }
-}
+{"mongodb":{"host":"localhost","port":27017},"aboutSection":{"heading":"About the Photographer","address":"East 47th Avenue","phone":"Lorem ipsum dolor"},"servicesSection":{"Point_1":"Photography","Para_1":"","Point_2":"East 47th Avenue","Para_2":"East 47th Avenue","Point_3":"Lorem ipsum dolor","Para_3":"East 47th Avenue","Point_4":"East","Para_4":"East 47th Avenue"}}

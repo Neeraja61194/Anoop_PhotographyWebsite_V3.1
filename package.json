@@ -2,31 +2,39 @@
   "name": "library",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start:express": "node app.js",
     "start": "nodemon"
+=======
+    "start": "supervisor app.js"
+>>>>>>> 06e3e97986b6302f9f5ed258d35477c0b1a16ef0
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aos": "^3.0.0-beta.6",
+    "async": "^3.2.0",
     "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "chalk": "^4.0.0",
     "cookie-parser": "^1.4.5",
+    "crypto": "^1.0.1",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
+    "forever-monitor": "^3.0.1",
     "jquery": "^3.5.0",
     "method-override": "^3.0.0",
+    "moment": "^2.27.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.12",
     "morgan": "^1.10.0",
@@ -38,11 +46,15 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "supervisor": "^0.12.0"
   },
   "nodemonConfig": {
-    "restartable": false,
-    "legacyWatch": true,
+    "restartable": "rs",
+    "watch": [
+      "src/*",
+      "public/img/"
+    ],
     "ignore": [
       "node_modules/**/node_modules"
     ],

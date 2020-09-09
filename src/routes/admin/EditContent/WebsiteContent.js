@@ -2,6 +2,44 @@ const moveFile = require('move-file');
 const path = require('path');
 const fs = require('fs');
 
+//Config File for editing About the Photographer Section
+const config = fs.readFileSync('config/config.json'); 
+const configData = JSON.parse(config); 
+
+const Edit_AboutSection = async (req, res) => {
+  try {
+      configData.aboutSection.heading = req.body.heading;
+          
+      let edited_aboutHeading = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_aboutHeading);
+      
+      configData.aboutSection.address = req.body.address;
+      let edited_address = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_address);
+
+  } catch (err) {
+      console.log("ERR: ", err);
+  } finally {
+      res.redirect('/EditContent');
+  }
+}
+
+const Edit_ServicesSection = async (req, res) => {
+  try {
+      configData.servicesSection.Point_1 = req.body.point_1;
+      let edited_point_1 = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_point_1);
+      
+      configData.servicesSection.Para_1 = req.body.para_1;
+      let edited_para_1 = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_para_1);
+
+  } catch (err) {
+      console.log("ERR: ", err);
+  } finally {
+      res.redirect('/EditContent');
+  }
+}
 
 const postSlot_1 = async (req, res) => {
 
@@ -150,7 +188,7 @@ const dir = __dirname + '/../../../../public/img/Slot_5_Image/' + image;
 if (fs.existsSync(dir)) {
     fs.unlink(dir, (err) => {
         if (err) throw err;
-        console.log('successfully deleted images from folder photos');
+        console.log('successfully deleted images from folders');
     });
 }
 }
@@ -161,5 +199,7 @@ module.exports = {
   slot_2: postSlot_2,
   slot_3: postSlot_3,
   slot_4: postSlot_4,
-  slot_5: postSlot_5
+  slot_5: postSlot_5,
+  Edit_About: Edit_AboutSection,
+  Edit_Services: Edit_ServicesSection
 }

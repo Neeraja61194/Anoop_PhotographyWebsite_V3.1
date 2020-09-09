@@ -5,8 +5,8 @@ const Image = require("../../../models/image");
 
 //config
 var config = require('../../../config/config.json')
-config_about = config.text.aboutUs;
-
+config_aboutHeading = config.aboutSection.heading;
+config_address = config.aboutSection.address;
 
 // Reading the Main Page images from the folder Slot_1_Image
 const Slot_1_Folder = __dirname+'/../../../public/img/Slot_1_Image/'
@@ -51,7 +51,7 @@ const home = async (req, res) => {
         folders: documents
     }
     const img_documents = await Image.find().exec();
-    res.render('users/index', { variables: indexVariables, photos: img_documents, Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_about});
+    res.render('users/index', { variables: indexVariables, photos: img_documents, Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_address,  user: req.user});
 }
 
 module.exports = home;

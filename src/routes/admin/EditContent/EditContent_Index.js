@@ -6,7 +6,11 @@ const User = require("../../../../models/user");
 
 //config
 var config = require('../../../../config/config.json')
-config_about = config.text.aboutUs;
+config_aboutHeading = config.aboutSection.heading;
+config_address = config.aboutSection.address;
+
+config_Point_1 = config.servicesSection.Point_1;
+config_Para_1 = config.servicesSection.Para_1;
 
 // Reading the Main Page images from the folder Slot_1_Image
 const Slot_1_Folder = __dirname+'/../../../../public/img/Slot_1_Image/'
@@ -55,7 +59,7 @@ const editContent_home = async (req, res) => {
     const img_documents = await Image.find().exec();
     const user_documents = await User.find().exec();
 
-    res.render('Admin/EditContent/EditContent_Index', { variables: indexVariables, photos: img_documents, users: user_documents,Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_about});
+    res.render('Admin/EditContent/EditContent_Index', { variables: indexVariables, photos: img_documents, users: user_documents,Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_address, config_Point_1, config_Para_1});
 }
 
 module.exports = editContent_home;
