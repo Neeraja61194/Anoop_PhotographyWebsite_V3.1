@@ -15,7 +15,7 @@ COPY package.json package-lock.json ./
 # COPY --chown=node:node package.json package-lock.json ./
 
 #RUN npm install nodemon
-RUN npm install supervisor
+RUN npm install nodemon supervisor
 
 COPY . /srv/app/
 
