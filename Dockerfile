@@ -14,8 +14,9 @@ WORKDIR /srv/app
 COPY package.json package-lock.json ./
 # COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm install nodemon
+#RUN npm install nodemon
+RUN npm install supervisor
 
 COPY . /srv/app/
 
-CMD ["node", "app.js"]
+CMD ["supervisor", "app.js"]

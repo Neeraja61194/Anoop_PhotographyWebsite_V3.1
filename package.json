@@ -5,12 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start:express": "node app.js",
-    "start": "nodemon"
-=======
     "start": "supervisor app.js"
->>>>>>> 06e3e97986b6302f9f5ed258d35477c0b1a16ef0
   },
   "keywords": [],
   "author": "",
