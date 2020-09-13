@@ -2,6 +2,7 @@
 .git
 docker-compose*.yml
 Dockerfile
+database/
 images/
 public/img/photos/
 public/img/Slot_1_Image/
