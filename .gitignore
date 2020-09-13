@@ -2,7 +2,7 @@
 images/
 node_modules/
 database/
-.dockerignore
+recreate.sh
 
 public/img/photos/*
 !public/img/photos/.gitkeep

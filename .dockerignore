@@ -2,6 +2,7 @@
 .git
 docker-compose*.yml
 Dockerfile
+recreate.sh
 database/
 images/
 public/img/photos/
