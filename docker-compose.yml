@@ -11,7 +11,6 @@ services:
    links:
       - "mongodb"
    container_name: webapp
-   #command: npx nodemon -L app.js
    volumes:
       - ./images/icons:/srv/app/public/img/icons
       - ./images/photos:/srv/app/public/img/photos

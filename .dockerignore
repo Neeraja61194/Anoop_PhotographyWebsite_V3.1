@@ -2,4 +2,11 @@
 .git
 docker-compose*.yml
 Dockerfile
-images
+images/
+public/img/photos/
+public/img/Slot_1_Image/
+public/img/Slot_2_Image/
+public/img/Slot_3_Image/
+public/img/Slot_4_Image/
+public/img/Slot_5_Image/
+
