@@ -1,4 +1,4 @@
 #!/bin/sh
 docker-compose down
 docker rmi webapp
-docker-compose up
+docker-compose up -d

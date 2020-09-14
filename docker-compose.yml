@@ -1,9 +1,9 @@
 version: "2"
 services:
   web:
-   build: .
-   #image: jperump/thenextai:v1.1
-   image: webapp
+   #build: .
+   image: jperump/secretspace:aa_webapp
+   #image: webapp
    ports:
       - "8080:3000"
    depends_on:
