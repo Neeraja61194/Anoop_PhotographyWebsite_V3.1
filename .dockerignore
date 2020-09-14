@@ -1,8 +1,9 @@
 .dockerignore
 .git
-docker-compose*.yml
+docker-compose.yml
 Dockerfile
 recreate.sh
+startover.sh
 database/
 images/
 public/img/photos/
