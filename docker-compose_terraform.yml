@@ -12,20 +12,27 @@ services:
       - "mongodb"
    container_name: webapp
    volumes:
-      - ./images/icons:/srv/app/public/img/icons
-      - ./images/photos:/srv/app/public/img/photos
-      - ./images/Slot_1_Image:/srv/app/public/img/Slot_1_Image
-      - ./images/Slot_2_Image:/srv/app/public/img/Slot_2_Image
-      - ./images/Slot_3_Image:/srv/app/public/img/Slot_3_Image
-      - ./images/Slot_4_Image:/srv/app/public/img/Slot_4_Image
-      - ./images/Slot_5_Image:/srv/app/public/img/Slot_5_Image
+      - ./data/images/icons:/srv/app/public/img/icons
+      - ./data/images/photos:/srv/app/public/img/photos
+      - ./data/images/Slot_1_Image:/srv/app/public/img/Slot_1_Image
+      - ./data/images/Slot_2_Image:/srv/app/public/img/Slot_2_Image
+      - ./data/images/Slot_3_Image:/srv/app/public/img/Slot_3_Image
+      - ./data/images/Slot_4_Image:/srv/app/public/img/Slot_4_Image
+      - ./data/images/Slot_5_Image:/srv/app/public/img/Slot_5_Image
   mongodb:
    image: mongo
    ports:
       - "27017:27017"
    container_name: mongodb
    volumes:
-      - ./database:/data/db
+      - ./data/database:/data/db
+  s3vol:
+   image: elementar/s3-volume
+   command: /data s3://jperump-terraform-state/AA_Web_data/
+   volumes:
+      - s3data:/data
 volumes:
    images: 
    database:
+   s3data:
+      driver: local
