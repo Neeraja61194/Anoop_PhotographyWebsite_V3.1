@@ -26,13 +26,13 @@ services:
    container_name: mongodb
    volumes:
       - ./data/database:/data/db
-  s3vol:
-   image: elementar/s3-volume
-   command: /data s3://jperump-terraform-state/AA_Web_data/
-   volumes:
-      - s3data:/data
+#   s3vol:
+#    image: elementar/s3-volume
+#    command: /data s3://jperump-terraform-state/AA_Web_data/
+#    volumes:
+#       - s3data:/data
 volumes:
    images: 
    database:
-   s3data:
-      driver: local
+   # s3data:
+   #    driver: local
