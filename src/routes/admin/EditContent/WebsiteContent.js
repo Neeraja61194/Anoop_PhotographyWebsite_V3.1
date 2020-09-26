@@ -13,9 +13,9 @@ const Edit_AboutSection = async (req, res) => {
       let edited_aboutHeading = JSON.stringify(configData);
       fs.writeFileSync('config/config.json', edited_aboutHeading);
       
-      configData.aboutSection.address = req.body.address;
-      let edited_address = JSON.stringify(configData);
-      fs.writeFileSync('config/config.json', edited_address);
+      configData.aboutSection.About_Para1 = req.body.About_Para1;
+      let edited_About_Para1 = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_About_Para1);
 
   } catch (err) {
       console.log("ERR: ", err);

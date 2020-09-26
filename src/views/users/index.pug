@@ -41,35 +41,42 @@ block content
         each mainImage in Slot_1_List
           img(src='img/Slot_1_Image/' + mainImage alt='Image 1' style="background: linear-gradient(to top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);")
           //- h1 Hello
+      //- section
+      //-   #about.about
+      //-     .row.row-cols-1.row-cols-sm-2
+      //-       .col.mb-4
+      //-         div(class="item-text" data-aos="fade-right")
+      //-           br
+      //-           h1=config_aboutHeading
+      //-           br
+      //-           p.big-text=config_About_Para1
+      //-           p Learn how to make a responsive website using HTML, CSS and bootstrap
+      //-           a.btn.btn-first(href='#') Like Video
+      //-           a.btn.btn-second(href='#') Subscribe Video
+      //-       .col.mb-4
+      //-         div(class="item-img" data-aos="fade-left")
+      //-           each slot2 in Slot_2_List
+      //-             img.img-responsive(src='img/Slot_2_Image/' + slot2 style="box-shadow: 15px 10px 20px rgb(0, 0, 0);")     
+            
       section
         #about.about
-          .row.row-cols-1.row-cols-sm-2
-            //- .col-6.banner-info
-            //- .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
-            //- div(class="col-lg-6")
-            .col.mb-4
-              div(class="item-text" data-aos="fade-right")
-                br
-                h1=config_aboutHeading
-                br
-                h4 Address : #{config_address}
-                p.big-text  Anoop Arunan is a Vancouver based Photographer
-                p Learn how to make a responsive website using HTML, CSS and bootstrap
-                a.btn.btn-first(href='#') Like Video
-                a.btn.btn-second(href='#') Subscribe Video
-            //- .col-6.banner-image
-            //- .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
-            //- div(class="col-lg-6")
-            .col.mb-4
-              div(class="item-img" data-aos="fade-left")
-                each slot2 in Slot_2_List
-                  img.img-responsive(src='img/Slot_2_Image/' + slot2 style="box-shadow: 15px 10px 20px rgb(0, 0, 0);")     
-      //- .row
-      //-   .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='' style="text-align: center; color : red;")
-      //-     | Content 1
-      //-   .col-xs-12.col-sm-6.Content(class='col-md-3> </div> <div class=', col-xs-12='', col-sm-6='', col-md-3='')
-      //-     | Content 2
-            
+          //- .row.row-cols-1.row-cols-sm-2
+            //- .col.mb-4
+          .two-col
+            div(class="item-text" data-aos="fade-right")
+              br
+              h1=config_aboutHeading
+              br
+              p.big-text=config_About_Para1
+              p Learn how to make a responsive website using HTML, CSS and bootstrap
+              a.btn.btn-first(href='#') Like Video
+              a.btn.btn-second(href='#') Subscribe Video
+          //- .col.mb-4
+          .two-col
+            div(class="item-img" data-aos="fade-left")
+              each slot2 in Slot_2_List
+                img.img-responsive(src='img/Slot_2_Image/' + slot2 style="box-shadow: 15px 10px 20px rgb(0, 0, 0);")     
+          
       .background-img
         each slot3 in Slot_3_List
           img(src='img/Slot_3_Image/' + slot3)
@@ -116,61 +123,84 @@ block content
       .text_parallax
         section(class="dark")
           #services.services
-            h2(style="color: #e4ce0d;" data-aos="fade-down") Services
+            h3 What I can do for you . . .
             hr
             br
+            //- .two-col(data-aos="fade-down" class="fading")
             .two-col(data-aos="fade-down")
-              //- h4 1. Photgraphy
-              //- p
-              //-   | It is a long established factn looking at its layout. he point of using Lorem Ipsum is that.
-              h4 1. #{config_Point_1}
-              p #{config_Para_1}
-              h4 2. Photo and Video Editing
-              p
-                //- | It is a long established factn looking at its layout.-less normal to using 'Content here, content here', making it look like readable.
+              p I provide exclusive coverage on your special day, be it your betrothal or your wedding or that incredibly special proposal, birthdays and Baby showers. In addition, I cover functions, events and celebrations. 
+              p I also specialize in portfolio shoot and conceptual photography. If you have an idea for a shoot, I can work with you to make it a reality. Make it come to life.
               br
               hr
             .two-col(data-aos="fade-down")
-              h4 3. Photoshop
-              p
-                //- | It is a long established factn looking at its layout. he point of using Lorem Ipsum is that.
-              h4 4. Reasonable Pricing
-              p
-                //- | It is a long established factn looking at its layout.-less normal to using 'Content here, content here', making it look like readable.
+              h3(style="float: right;") You can Follow me here ...
               br
-              hr
-            
+              br
+              br
+              br
+              div(class="follow-icons")
+                ul
+                  li 
+                    span.fa.fa-facebook-square(aria-hidden='true') 
+                  li
+                    span.fa.fa-instagram(aria-hidden='true')
+                  li
+                    span.fa.fa-envelope(aria-hidden='true')
+
+            //- h2(style="color: #e4ce0d;" data-aos="fade-down") Services
+            //- hr
+            //- br
+            //- .two-col(data-aos="fade-down")
+            //-   h4 1. #{config_Point_1}
+            //-   p #{config_Para_1}
+            //-   h4 2. Photo and Video Editing
+            //-   p
+            //-   br
+            //-   hr
+            //- .two-col(data-aos="fade-down")
+            //-   h4 3. Photoshop
+            //-   p
+            //-   h4 4. Reasonable Pricing
+            //-   p
+            //-   br
+            //-   hr
+
       #contactus
         .contact-img
           each slot5 in Slot_5_List
             img(src='img/Slot_5_Image/' + slot5)
+          -if(message)
+            .alert.alert-danger !{message}
           .loginBox
             .glass(data-aos="fade-down")
               h3 Let's Get In Touch !!
               //- h5 I would love to hear from you...
-              form(action="/contact" method="post")
+              form(id='contactForm' onsubmit="return sendData()" action="/contact" method="post")
                 .inputBox
-                  input(type='text', name='name', placeholder='Name')
-                  span.fa.fa-user(aria-hidden='true')
+                  input(type='text', name='name', placeholder='Name' required='')
                 .inputBox
-                  input(type='text', name='email', placeholder='Email')
-                  span.fa.fa-envelope(aria-hidden='true' style="font-size: 24px;")
+                  input(type='text', name='email', placeholder='Email' required='')
                 .inputBox
-                  input(type='text', name='phone', placeholder='Phone Number')
-                  span.fa.fa-phone(aria-hidden='true')
+                  input(type='text', name='phone', placeholder='Phone Number(Optional)')
+                .inputBox
+                  input(type='text', name='date', placeholder='Date of Event')
+                .inputBox
+                  input(type='text', name='location', placeholder='Location')
+                .inputBox
+                  input(type='text', name='eventType', placeholder='What kind of service are you looking for?')
                 br
                 .inputBox
                   input(type='textarea', name='message', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
                 br
                 br
                 input(type='submit', name='', value='Send Message')
-          .contact-address
-            h1 Address
-            h4 Phone :
-            h6 You can find me here 
-            span.fa.fa-facebook-square(aria-hidden='true') 
-            br
-            span.fa.fa-instagram(aria-hidden='true')
+          //- .contact-address
+          //-   h1 Address
+          //-   h4 Phone :
+          //-   h6 You can find me here 
+          //-   span.fa.fa-facebook-square(aria-hidden='true') 
+          //-   br
+          //-   span.fa.fa-instagram(aria-hidden='true')
       .arrow
         a(href='#home')
           img(src='https://i.imgur.com/wre6n0O.png', alt='up_arrow')
@@ -208,9 +238,23 @@ block content
   
         });
         });
+    //- script.
+    //-   $(document).ready((function sendData(){
+    //-     $('#contactForm').submit(function(event) {
+    //-     event.preventDefault(); // Stops browser from navigating away from page
+    //-     var data;
+    //-     // build a json object or do something with the form, store in data
+    //-     $.post('/contact', data, function(resp) {
+    //-         alert(resp);
+    //-       });
+    //-     });
+    //-     }));
 
     script(src="https://unpkg.com/aos@next/dist/aos.js")
     script. 
       AOS.init({
         duration: 1600,
       });
+    
+
+          

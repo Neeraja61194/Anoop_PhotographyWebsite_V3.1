@@ -119,8 +119,8 @@ block content
                 br
                 h1=config_aboutHeading
                 br
-                h4 Address : #{config_address}
-                p.big-text  Create Responsive Website
+                //- h4=config_About_Para1
+                p.big-text=config_About_Para1
                 p Learn how to make a responsive website using HTML, CSS and bootstrap
                 a.btn.btn-first(href='#') Like Video
                 a.btn.btn-second(href='#') Subscribe Video
@@ -137,9 +137,9 @@ block content
                       .col-sm-10
                         input#inputEmail3.form-control(type="text" name="heading" value=config_aboutHeading)
                     .form-group.row
-                      label.col-sm-2.col-form-label(for='inputEmail3') Update Address
+                      label.col-sm-2.col-form-label(for='inputEmail3') Update Para 1
                       .col-sm-10
-                        input#inputEmail3.form-control(type="text" name="address" value=config_address)
+                        input#inputEmail3.form-control(type="text" name="About_Para1" value=config_About_Para1)
                         br
                     button.btn.btn-primary Update
                 .modal-footer
@@ -377,7 +377,6 @@ block content
               return true;
         }
         else {
-          //- alert('You cancelled the deletion of your Account!');
           return false;
         }
       }  

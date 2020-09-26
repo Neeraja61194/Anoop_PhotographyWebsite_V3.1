@@ -7,7 +7,7 @@ const User = require("../../../../models/user");
 //config
 var config = require('../../../../config/config.json')
 config_aboutHeading = config.aboutSection.heading;
-config_address = config.aboutSection.address;
+config_About_Para1 = config.aboutSection.About_Para1;
 
 config_Point_1 = config.servicesSection.Point_1;
 config_Para_1 = config.servicesSection.Para_1;
@@ -59,7 +59,7 @@ const editContent_home = async (req, res) => {
     const img_documents = await Image.find().exec();
     const user_documents = await User.find().exec();
 
-    res.render('Admin/EditContent/EditContent_Index', { variables: indexVariables, photos: img_documents, users: user_documents,Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_address, config_Point_1, config_Para_1});
+    res.render('Admin/EditContent/EditContent_Index', { variables: indexVariables, photos: img_documents, users: user_documents,Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_About_Para1, config_Point_1, config_Para_1});
 }
 
 module.exports = editContent_home;
