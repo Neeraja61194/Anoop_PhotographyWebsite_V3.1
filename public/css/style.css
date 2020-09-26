@@ -204,7 +204,7 @@ section {
 	background-size: 100%;
   }
 .contact-img{
-	height: 1000px;
+	height: 1200px;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -361,7 +361,7 @@ section {
 
 .two-col {
     float: left;
-    width: 50%;
+    width: 48%;
     padding: 0 4%;
 	text-align: left;
 }
@@ -369,6 +369,7 @@ section {
 .two-col p {
 	font-size: 16px;
 	line-height: 2;
+	/* color: grey; */
 }
 section {
     overflow: auto;
@@ -379,8 +380,17 @@ section {
     overflow: auto;
     padding: 40px 80px;
 	background-color: #222222;
-	/* background-color: whitesmoke; */
+	/* background-color: rgb(218, 214, 214); */
     color: #f2f2f2;
+}
+
+.two-col .follow-icons ul {
+	float: right;
+}
+.two-col .follow-icons ul > li {
+	display: inline-block;
+	font-size: 30px;
+	margin-right: 20px;
 }
 
 .diff_services{
@@ -711,7 +721,7 @@ section {
 
 	  }
 	.contact-img{
-		height: 600px;
+		height: 900px;
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		background-position: center;
@@ -857,14 +867,28 @@ section {
 
 /* Portrait */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+	
+	.logo a span{
+		font-size: 30px;
+		color: red;
+	}
+
 	.team-area a {
 		margin-left: 20px;
 		margin-right: 40px;
+		
 	}
+
+	/* .col-6 {
+		width: 100%;
+        padding: 0;
+        text-align: center;
+	} */
 	.single-team {
-		height:250px;
-		width: 320px;
+		height:100px;
+		width: 200px;
 		margin-bottom: 0;
+		
 	}
 	
 	.single-team .content {
@@ -882,20 +906,23 @@ section {
 	.background-img{
 		position: relative;
 		height: 500px;
-		background-attachment: fixed;
+		/* background-attachment: fixed; */
+		background-attachment: scroll !important;
 		background-repeat: no-repeat;
 		background-position: center;
-		/* background-size: 100%; */
 		background-size: cover;
 
+		overflow: hidden;
 	  }
 	.contact-img{
-		height: 800px;
-		background-attachment: fixed;
+		height: 1000px;
+		/* background-attachment: fixed; */
+		background-attachment: scroll !important;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		/* background-size: 100%; */
+		
+		overflow: hidden;
 	  }
 	  
 	.parallax5 {
@@ -903,10 +930,13 @@ section {
 		top: 0;
 		margin-top: 0;
 		position: absolute;
-		background-attachment: fixed;
+		/* background-attachment: fixed; */
+		background-attachment: scroll !important;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
+
+		overflow: hidden;
 	}
 	
 	.text_parallax .heading-contact {
@@ -918,23 +948,30 @@ section {
 
 /* Landscape */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2){
+	
 	.single-team {
-		height:350px;
-		width: 450px;
+		height:100px;
+		width: 250px;
+		margin-bottom: 0;
 	}
 	
 	.single-team .content {
 		width: 450px;
 		margin-left: 10px;
 	  }
-	  .background-img{
+
+	.background-img{
 		position: relative;
+		background-attachment: scroll !important;
+		overflow: hidden;
 		height: 500px;
 		background-size: cover;
 
 	  }
 	.contact-img{
-		height: 800px;
+		height: 1000px;
+		background-attachment: scroll !important;
+		overflow: hidden;
 		background-size: cover;
 		
 	  }
@@ -942,6 +979,8 @@ section {
 	.parallax5 {
 
 		min-height: 800px;		
+		background-attachment: scroll !important;
+		overflow: hidden;
 		background-size: cover;
 	}
 	
@@ -950,10 +989,6 @@ section {
 		top: 670px; 
 	}
 
-	.loginBox {
-		width: 350px;
-		height: 700px;
-	}
 }
 /* Phablets and Tablets - iPad, Galaxy Note, Pixel Slate, Fire  - Portrait view*/
 /* @media (min-width: 480px) and (max-width: 768px) and (orientation: portrait) { 
