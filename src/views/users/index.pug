@@ -107,7 +107,7 @@ block content
             .col.justify-content-center
               each folder in variables.folders
                 .row.banner-image(data-aos="zoom-in")
-                  a(href="/folders/" + folder.name style="text-decoration: none;" class="photo-link")
+                  a(href="/folders/" + folder._id style="text-decoration: none;" class="photo-link")
                       img(src='/img/photos/' + folder.folder_img alt=folder.folder_img)
                       .content
                         h2(style="text-shadow: 0 0 10px #000000;")= folder.name
