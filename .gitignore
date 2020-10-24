@@ -1,4 +1,5 @@
 .env
+dockercreds.txt
 images/
 node_modules/
 database/
@@ -22,4 +23,3 @@ public/img/Slot_4_Image/*
 
 public/img/Slot_5_Image/*
 !public/img/Slot_5_Image/.gitkeep
-dockercreds.txt
