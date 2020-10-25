@@ -12,7 +12,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 #building docker containers
-docker login --username **USERNAMETOBEFILLEDHERE** --password **PASSWORDTOBEFILLEDHERE**
+docker login --username aawebsite --password @@_website
 mkdir /opt/app
 cd /opt/app && { curl -O https://raw.githubusercontent.com/Neeraja61194/Anoop_PhotographyWebsite_V3.1/master/docker-compose_terraform.yml ; }
 docker-compose -f /opt/app/docker-compose_terraform.yml up -d
