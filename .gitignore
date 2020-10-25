@@ -5,6 +5,8 @@ node_modules/
 database/
 recreate.sh
 startover.sh
+Terraform/prod/*.pem
+Terraform/staging/*.pem
 
 public/img/photos/*
 !public/img/photos/.gitkeep
