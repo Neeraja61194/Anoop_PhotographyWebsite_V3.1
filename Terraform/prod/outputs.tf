@@ -9,7 +9,3 @@ output "webserver_security_group" {
   value = "${module.webserver.web_server_security_group_id}"
 }
 
-
-output "webserver_url" {
-  value = "${module.webserver.website-url}"
-}
