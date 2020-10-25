@@ -22,7 +22,7 @@ resource "aws_security_group_rule" "allow_ssh_ingress" {
   from_port         = "${var.ssh-port}"
   to_port           = "${var.ssh-port}"
   protocol          = "tcp"
-  cidr_blocks       = ["${var.my-ip}"]
+  cidr_blocks       = ["${var.ip1}"]
 
 
 }
@@ -45,5 +45,5 @@ resource "aws_security_group_rule" "allow_http_ingress_to_webserver" {
   from_port         = "${var.http-port}"
   to_port           = "${var.http-port}"
   protocol          = "tcp"
-  cidr_blocks       = ["${var.my-ip}"]
+  cidr_blocks       = ["${var.ip1}"]
 }

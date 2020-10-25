@@ -23,8 +23,12 @@ variable "https-port" {
 variable "ssh-port" {
   default = "22"
 }
-variable "my-ip" {
+variable "ip1" {
   default = "24.80.6.10/32"
+}
+
+variable "ip2" {
+  default = "24.80.25.176/32"
 }
 
 variable "azs" {

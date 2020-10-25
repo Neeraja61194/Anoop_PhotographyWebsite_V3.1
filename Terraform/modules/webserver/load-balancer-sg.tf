@@ -8,7 +8,7 @@ resource "aws_security_group" "lb-sg" {
 #   from_port         = "${var.http-port}"
 #   to_port           = "${var.http-port}"
 #   protocol          = "tcp"
-#   # cidr_blocks       = ["${var.my-ip}"]
+#   # cidr_blocks       = ["${var.ip1}"]
 #   cidr_blocks       = ["0.0.0.0/0"]
 # }
 
@@ -19,9 +19,20 @@ resource "aws_security_group_rule" "allow_https_ingress_to_lb" {
   from_port         = "${var.https-port}"
   to_port           = "${var.https-port}"
   protocol          = "tcp"
-  # cidr_blocks       = ["${var.my-ip}"]
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["${var.ip1}"]
+  #cidr_blocks       = ["0.0.0.0/0"]
 }
+
+resource "aws_security_group_rule" "allow_https_ingress_to_lb" {
+  type              = "ingress"
+  security_group_id = "${aws_security_group.lb-sg.id}"
+  from_port         = "${var.https-port}"
+  to_port           = "${var.https-port}"
+  protocol          = "tcp"
+  cidr_blocks       = ["${var.ip2}"]
+  #cidr_blocks       = ["0.0.0.0/0"]
+}
+
 
 resource "aws_security_group_rule" "allow_egress_traffic_from_lb" {
   type                     = "egress"
