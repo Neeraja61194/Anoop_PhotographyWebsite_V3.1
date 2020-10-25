@@ -13,7 +13,7 @@ resource "aws_security_group" "lb-sg" {
 # }
 
 
-resource "aws_security_group_rule" "allow_https_ingress_to_lb" {
+resource "aws_security_group_rule" "allow_https_ingress_to_lb_ip1" {
   type              = "ingress"
   security_group_id = "${aws_security_group.lb-sg.id}"
   from_port         = "${var.https-port}"
@@ -23,7 +23,7 @@ resource "aws_security_group_rule" "allow_https_ingress_to_lb" {
   #cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "allow_https_ingress_to_lb" {
+resource "aws_security_group_rule" "allow_https_ingress_to_lb_ip2" {
   type              = "ingress"
   security_group_id = "${aws_security_group.lb-sg.id}"
   from_port         = "${var.https-port}"
