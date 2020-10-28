@@ -6,7 +6,12 @@ const Image = require("../../../models/image");
 //config
 var config = require('../../../config/config.json')
 config_aboutHeading = config.aboutSection.heading;
-config_address = config.aboutSection.address;
+config_About_Para1 = config.aboutSection.About_Para1;
+config_About_Para2 = config.aboutSection.About_Para2;
+
+config_Services_Para1 = config.servicesSection.Services_Para1;
+config_Services_Para2 = config.servicesSection.Services_Para2;
+config_Services_Para3 = config.servicesSection.Services_Para3;
 
 // Reading the Main Page images from the folder Slot_1_Image
 const Slot_1_Folder = __dirname+'/../../../public/img/Slot_1_Image/'
@@ -51,7 +56,7 @@ const home = async (req, res) => {
         folders: documents
     }
     const img_documents = await Image.find().exec();
-    res.render('users/index', { variables: indexVariables, photos: img_documents, Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_address,  user: req.user, message: req.flash('contactMessage')});
+    res.render('users/index', { variables: indexVariables, photos: img_documents, Slot_1_List, Slot_2_List, Slot_3_List, Slot_4_List, Slot_5_List, config_aboutHeading, config_About_Para1, config_About_Para2, config_Services_Para1, config_Services_Para2, config_Services_Para3, user: req.user, message: req.flash('contactMessage')});
 }
 
 module.exports = home;

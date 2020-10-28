@@ -7,6 +7,7 @@ recreate.sh
 startover.sh
 Terraform/prod/AAWEBSITE.pem
 Terraform/staging/AAWEBSITE.pem
+config/config_aws.json
 
 public/img/photos/*
 !public/img/photos/.gitkeep
