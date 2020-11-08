@@ -154,7 +154,7 @@ block content
           each slot5 in Slot_5_List
             img(src='img/Slot_5_Image/' + slot5)
           .loginBox
-            .glass(data-aos="fade-down")
+            .glass
               h3 Let's Get In Touch !!
               //- h5 I would love to hear from you...
               form(id='contactForm' onsubmit="return sendData()" action="/contact" method="post")
@@ -169,7 +169,7 @@ block content
                 .inputBox
                   input(type='text', name='location', placeholder='Location')
                 .inputBox
-                  input(type='text', name='eventType', placeholder='What kind of service are you looking for?')
+                  input(type='text', name='eventType', placeholder='Type of service required?')
                 br
                 .inputBox
                   input(type='textarea', name='message', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")

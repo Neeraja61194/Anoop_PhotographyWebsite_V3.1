@@ -8,6 +8,7 @@ recreate.sh
 startover.sh
 database/
 images/
+data/
 public/img/photos/
 public/img/Slot_1_Image/
 public/img/Slot_2_Image/

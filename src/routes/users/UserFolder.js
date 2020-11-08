@@ -15,8 +15,8 @@ const userFolderView = async (req, res) => {
   const selectedId = req.params.id;
   Folder.findById(selectedId, function (err, document) {
     const folder_name = document.name;
-    res.redirect('/folder/'+folder_name)
-  });
+    res.redirect('/folder/'+ encodeURIComponent(folder_name))
+  }); 
 }
 const singleFolder = async (req, res) => {
   const folder_name = req.params.name;
