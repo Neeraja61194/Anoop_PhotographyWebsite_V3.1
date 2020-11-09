@@ -68,9 +68,8 @@ block content
               h1=config_aboutHeading
               br
               p.big-text=config_About_Para1
-              p Learn how to make a responsive website using HTML, CSS and bootstrap
-              a.btn.btn-first(href='#') Like Video
-              a.btn.btn-second(href='#') Subscribe Video
+              p.big-text=config_About_Para2
+
           //- .col.mb-4
           .two-col
             div(class="item-img" data-aos="fade-left")
@@ -128,8 +127,11 @@ block content
             br
             //- .two-col(data-aos="fade-down" class="fading")
             .two-col(data-aos="fade-down")
-              p I provide exclusive coverage on your special day, be it your betrothal or your wedding or that incredibly special proposal, birthdays and Baby showers. In addition, I cover functions, events and celebrations. 
-              p I also specialize in portfolio shoot and conceptual photography. If you have an idea for a shoot, I can work with you to make it a reality. Make it come to life.
+              p=config_Services_Para1
+              p=config_Services_Para2
+              p=config_Services_Para3
+              //- p I provide exclusive coverage on your special day, be it your betrothal or your wedding or that incredibly special proposal, birthdays and Baby showers. In addition, I cover functions, events and celebrations. 
+              //- p I also specialize in portfolio shoot and conceptual photography. If you have an idea for a shoot, I can work with you to make it a reality. Make it come to life.
               br
               hr
             .two-col(data-aos="fade-down")
@@ -139,40 +141,20 @@ block content
               br
               br
               div(class="follow-icons")
-                ul
+                ul 
                   li 
-                    span.fa.fa-facebook-square(aria-hidden='true') 
+                    a(href="https://www.youtube.com/channel/UCm1dgWauzhgFifckipmClzA" style="text-decoration: none;color:white;").fa.fa-youtube(aria-hidden='true') 
                   li
-                    span.fa.fa-instagram(aria-hidden='true')
+                    a(href="https://instagram.com/anoop_arunan?igshid=17n7ntap5ifoq" style="text-decoration: none;color:white;").fa.fa-instagram(aria-hidden='true')
                   li
-                    span.fa.fa-envelope(aria-hidden='true')
-
-            //- h2(style="color: #e4ce0d;" data-aos="fade-down") Services
-            //- hr
-            //- br
-            //- .two-col(data-aos="fade-down")
-            //-   h4 1. #{config_Point_1}
-            //-   p #{config_Para_1}
-            //-   h4 2. Photo and Video Editing
-            //-   p
-            //-   br
-            //-   hr
-            //- .two-col(data-aos="fade-down")
-            //-   h4 3. Photoshop
-            //-   p
-            //-   h4 4. Reasonable Pricing
-            //-   p
-            //-   br
-            //-   hr
+                    a(href="mailto:annoop007@gmail.com" style="text-decoration: none;color:white;").fa.fa-envelope(aria-hidden='true')
 
       #contactus
         .contact-img
           each slot5 in Slot_5_List
             img(src='img/Slot_5_Image/' + slot5)
-          -if(message)
-            .alert.alert-danger !{message}
           .loginBox
-            .glass(data-aos="fade-down")
+            .glass
               h3 Let's Get In Touch !!
               //- h5 I would love to hear from you...
               form(id='contactForm' onsubmit="return sendData()" action="/contact" method="post")
@@ -187,13 +169,13 @@ block content
                 .inputBox
                   input(type='text', name='location', placeholder='Location')
                 .inputBox
-                  input(type='text', name='eventType', placeholder='What kind of service are you looking for?')
+                  input(type='text', name='eventType', placeholder='Type of service required?')
                 br
                 .inputBox
                   input(type='textarea', name='message', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
                 br
                 br
-                input(type='submit', name='', value='Send Message')
+                input(type='submit', name='', value='Send Message' onclick="Contact_MsgAlert()")
           //- .contact-address
           //-   h1 Address
           //-   h4 Phone :
@@ -238,17 +220,11 @@ block content
   
         });
         });
-    //- script.
-    //-   $(document).ready((function sendData(){
-    //-     $('#contactForm').submit(function(event) {
-    //-     event.preventDefault(); // Stops browser from navigating away from page
-    //-     var data;
-    //-     // build a json object or do something with the form, store in data
-    //-     $.post('/contact', data, function(resp) {
-    //-         alert(resp);
-    //-       });
-    //-     });
-    //-     }));
+
+    script. 
+      function Contact_MsgAlert(){
+          alert("Thank You. An ackonwledgment will be sent in a few minutes, to the eMail address you provided. \nIf you do not receive an eMail, please send an interest again and make sure to give a valid Email ID");
+        }
 
     script(src="https://unpkg.com/aos@next/dist/aos.js")
     script. 

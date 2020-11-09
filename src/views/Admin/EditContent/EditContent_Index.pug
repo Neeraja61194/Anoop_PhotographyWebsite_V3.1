@@ -16,7 +16,7 @@ block content
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
   body
     #home.main_container
-      .navbar
+      .navbar(data-aos="fade-down")
         .logo
           a(href='#' style="text-decoration: none;" data-aos="zoom-in") 
             span Anoop Arunan
@@ -121,9 +121,8 @@ block content
                 br
                 //- h4=config_About_Para1
                 p.big-text=config_About_Para1
-                p Learn how to make a responsive website using HTML, CSS and bootstrap
-                a.btn.btn-first(href='#') Like Video
-                a.btn.btn-second(href='#') Subscribe Video
+                p.big-text=config_About_Para2
+                
                 button.modal-open(data-modal='modal6' style="border: 1px solid black;box-shadow: 10px 10px 10px  black; float: right;")
                   span.fa.fa-edit(aria-hidden='true' style="color:black; font-size:20px;")
             #modal6.modal
@@ -140,6 +139,10 @@ block content
                       label.col-sm-2.col-form-label(for='inputEmail3') Update Para 1
                       .col-sm-10
                         input#inputEmail3.form-control(type="text" name="About_Para1" value=config_About_Para1)
+                    .form-group.row
+                      label.col-sm-2.col-form-label(for='inputEmail3') Update Para 2
+                      .col-sm-10
+                        input#inputEmail3.form-control(type="text" name="About_Para2" value=config_About_Para2)
                         br
                     button.btn.btn-primary Update
                 .modal-footer
@@ -271,29 +274,36 @@ block content
       .text_parallax
         section(class="dark")
           #services.services
-            h2(style="color: #e4ce0d;" data-aos="fade-down") Services
+            h3 What I can do for you . . .
             hr
             br
+            //- .two-col(data-aos="fade-down" class="fading")
             .two-col(data-aos="fade-down")
-              //- h4 1. Photgraphy
-              //- p
-              //-   | It is a long established factn looking at its layout. he point of using Lorem Ipsum is that.
-              h4 1. #{config_Point_1}
-              p #{config_Para_1}
-              h4 2. Photo and Video Editing
-              p
-                //- | It is a long established factn looking at its layout.-less normal to using 'Content here, content here', making it look like readable.
+              p=config_Services_Para1
+              p=config_Services_Para2
+              p=config_Services_Para3
+              //- p I provide exclusive coverage on your special day, be it your betrothal or your wedding or that incredibly special proposal, birthdays and Baby showers. In addition, I cover functions, events and celebrations. 
+              //- p I also specialize in portfolio shoot and conceptual photography. If you have an idea for a shoot, I can work with you to make it a reality. Make it come to life.
               br
               hr
             .two-col(data-aos="fade-down")
-              h4 3. Photoshop
-              p
-                //- | It is a long established factn looking at its layout. he point of using Lorem Ipsum is that.
-              h4 4. Reasonable Pricing
-              p
-                //- | It is a long established factn looking at its layout.-less normal to using 'Content here, content here', making it look like readable.
+              h3(style="float: right;") You can Follow me here ...
               br
-              hr
+              br
+              br
+              br
+              div(class="follow-icons")
+                ul 
+                  li 
+                    a(href="https://www.youtube.com/channel/UCm1dgWauzhgFifckipmClzA" style="text-decoration: none;color:white;").fa.fa-youtube(aria-hidden='true') 
+                  li
+                    a(href="https://instagram.com/anoop_arunan?igshid=17n7ntap5ifoq" style="text-decoration: none;color:white;").fa.fa-instagram(aria-hidden='true')
+                  li
+                    a(href="mailto:annoop007@gmail.com" style="text-decoration: none;color:white;").fa.fa-envelope(aria-hidden='true')
+              br
+              br
+              br
+              br
               button.modal-open(data-modal='modal7' style="border: 1px solid white;box-shadow: 10px 10px 10px  black; float: right;")
                   span.fa.fa-edit(aria-hidden='true' style="color:white; font-size:20px;")
 
@@ -304,13 +314,17 @@ block content
                 .modal-body
                   form(action="/slot_Services" method="post")           
                     .form-group.row
-                      label.col-sm-2.col-form-label(for='inputEmail3') Update Point 1
-                      .col-sm-10
-                        input#inputEmail3.form-control(type="text" name="point_1" value=config_Point_1)
-                    .form-group.row
                       label.col-sm-2.col-form-label(for='inputEmail3') Update Para 1
                       .col-sm-10
-                        input#inputEmail3.form-control(type="text" name="para_1" value=config_Para_1)
+                        input#inputEmail3.form-control(type="text" name="para_1" value=config_Services_Para1)
+                    .form-group.row
+                      label.col-sm-2.col-form-label(for='inputEmail3') Update Para 2
+                      .col-sm-10
+                        input#inputEmail3.form-control(type="text" name="para_2" value=config_Services_Para2)
+                    .form-group.row
+                      label.col-sm-2.col-form-label(for='inputEmail3') Update Para 3
+                      .col-sm-10
+                        input#inputEmail3.form-control(type="text" name="para_3" value=config_Services_Para3)
                         br
                     button.btn.btn-primary Update
                 .modal-footer
@@ -341,22 +355,28 @@ block content
                 button.link.modal-close Close
 
           .loginBox
-            .glass(data-aos="zoom-in")
+            .glass(data-aos="fade-down")
               h3 Let's Get In Touch !!
-              form
+              //- h5 I would love to hear from you...
+              form(id='contactForm' onsubmit="return sendData()" action="/contact" method="post")
                 .inputBox
-                  input(type='text', name='', placeholder='Name')
-                  span
-                    i.fa.fa-user(aria-hidden='true')
+                  input(type='text', name='name', placeholder='Name' required='')
                 .inputBox
-                  input(type='text', name='', placeholder='Email')
+                  input(type='text', name='email', placeholder='Email' required='')
                 .inputBox
-                  input(type='text', name='', placeholder='Phone Number')
+                  input(type='text', name='phone', placeholder='Phone Number(Optional)')
+                .inputBox
+                  input(type='text', name='date', placeholder='Date of Event')
+                .inputBox
+                  input(type='text', name='location', placeholder='Location')
+                .inputBox
+                  input(type='text', name='eventType', placeholder='What kind of service are you looking for?')
                 br
                 .inputBox
-                  input(type='textarea', name='', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
+                  input(type='textarea', name='message', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
                 br
-                input(type='submit', name='', value='Send')
+                br
+                input(type='submit', name='', value='Send Message')
         
       .arrow
         a(href='#home')

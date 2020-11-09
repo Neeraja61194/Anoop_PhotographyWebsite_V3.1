@@ -1,10 +1,11 @@
 
 .loginBox {
     width: 45%;
-    height: 60%;
+    height: 70%;
 	position: relative;
 	top: 50%;
 	left: 20%;
+	bottom: 5%;
 	margin-left: 6%;
 	transform: translate(-50%, -50%);
 	box-sizing: border-box;
@@ -134,9 +135,19 @@
 		background-color: rgba(12, 12, 12, 0.6);
 	}
 
-	.loginBox input[type="text"], .loginBox input[type="textarea"], .loginBox input[type="submit"] {
+	.loginBox input[type="text"] {
+		font-size: 14px;
+		
+	}
+	.loginBox input[type="textarea"] {
+		font-size: 16px;
+		
+	}
+	.loginBox input[type="submit"] { 
 		font-size: 16px;
 	}
+
+
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {

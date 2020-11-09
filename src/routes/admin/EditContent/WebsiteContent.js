@@ -9,13 +9,16 @@ const configData = JSON.parse(config);
 const Edit_AboutSection = async (req, res) => {
   try {
       configData.aboutSection.heading = req.body.heading;
-          
       let edited_aboutHeading = JSON.stringify(configData);
       fs.writeFileSync('config/config.json', edited_aboutHeading);
       
       configData.aboutSection.About_Para1 = req.body.About_Para1;
       let edited_About_Para1 = JSON.stringify(configData);
       fs.writeFileSync('config/config.json', edited_About_Para1);
+
+      configData.aboutSection.About_Para2 = req.body.About_Para2;
+      let edited_About_Para2 = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_About_Para2);
 
   } catch (err) {
       console.log("ERR: ", err);
@@ -26,13 +29,17 @@ const Edit_AboutSection = async (req, res) => {
 
 const Edit_ServicesSection = async (req, res) => {
   try {
-      configData.servicesSection.Point_1 = req.body.point_1;
-      let edited_point_1 = JSON.stringify(configData);
-      fs.writeFileSync('config/config.json', edited_point_1);
+      configData.servicesSection.Services_Para1 = req.body.para_1;
+      let edited_Services_Para1 = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_Services_Para1);
       
-      configData.servicesSection.Para_1 = req.body.para_1;
-      let edited_para_1 = JSON.stringify(configData);
-      fs.writeFileSync('config/config.json', edited_para_1);
+      configData.servicesSection.Services_Para2 = req.body.para_2;
+      let edited_Services_Para2 = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_Services_Para2);
+
+      configData.servicesSection.Services_Para3 = req.body.para_3;
+      let edited_Services_Para3 = JSON.stringify(configData);
+      fs.writeFileSync('config/config.json', edited_Services_Para3);
 
   } catch (err) {
       console.log("ERR: ", err);
