@@ -1,8 +1,10 @@
 .env
+config/config_aws.json
 dockercreds.txt
 images/
 node_modules/
 database/
+data/
 recreate.sh
 startover.sh
 Terraform/prod/AAWEBSITE.pem

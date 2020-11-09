@@ -1,5 +1,5 @@
 resource "aws_autoscaling_policy" "autoscaling_policy" {
-  name                   = "webserver-autoscaling-policy"
+  name                   = "webserver-autoscaling-policy-${var.environment}"
   policy_type            = "TargetTrackingScaling"
   autoscaling_group_name = "${aws_autoscaling_group.webserver-autoscaling-group.name}"
 
