@@ -154,7 +154,7 @@ block content
           each slot5 in Slot_5_List
             img(src='img/Slot_5_Image/' + slot5)
           .loginBox
-            .glass
+            .glass(data-aos="fade-down")
               h3 Let's Get In Touch !!
               //- h5 I would love to hear from you...
               form(id='contactForm' onsubmit="return sendData()" action="/contact" method="post")
@@ -165,11 +165,14 @@ block content
                 .inputBox
                   input(type='text', name='phone', placeholder='Phone Number(Optional)')
                 .inputBox
-                  input(type='text', name='date', placeholder='Date of Event')
+                  label(class="event") Date of Event (Preferably Weekends and Holidays):
+                  br
+                  input(class="eventDate" type='date' name='date')
+                  //-input#date.textbox-n(placeholder='Date of Event (Preferably Weekends and Holidays)' type='text' onfocus="(this.type='date')")
                 .inputBox
                   input(type='text', name='location', placeholder='Location')
                 .inputBox
-                  input(type='text', name='eventType', placeholder='Type of service required?')
+                  input(type='text', name='eventType', placeholder='What kind of service are you looking for?')
                 br
                 .inputBox
                   input(type='textarea', name='message', placeholder='Enter message' rows="16" cols="70" style="white-space: pre-wrap; padding: 12px 20px;background: transparent;")
@@ -223,7 +226,7 @@ block content
 
     script. 
       function Contact_MsgAlert(){
-          alert("Thank You. An ackonwledgment will be sent in a few minutes, to the eMail address you provided. \nIf you do not receive an eMail, please send an interest again and make sure to give a valid Email ID");
+          alert("A confirmation Email will be sent to the email address you provided in a few minutes. \nIf you did not receive an email then enter your correct email address and fill the form again.");
         }
 
     script(src="https://unpkg.com/aos@next/dist/aos.js")
