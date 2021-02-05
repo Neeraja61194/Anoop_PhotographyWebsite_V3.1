@@ -9,6 +9,8 @@ recreate.sh
 startover.sh
 Terraform/prod/AAWEBSITE.pem
 Terraform/staging/AAWEBSITE.pem
+Terraform/modules/webserver/AAWEBSITE.pem
+Terraform/modules/webserver-staging/AAWEBSITE.pem
 config/config_aws.json
 
 public/img/photos/*
