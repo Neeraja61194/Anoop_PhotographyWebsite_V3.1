@@ -2,7 +2,7 @@ version: "2"
 services:
   web:
    #build: .
-   image: jperump/secretspace:aa_webapp
+   image: jperump/secretspace:aa_webapp_v2
    #image: webapp
    ports:
       - "80:3000"
